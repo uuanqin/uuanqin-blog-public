@@ -458,6 +458,7 @@ canvas:not(#ribbon-canvas),
 .btn-effects,
 .shuoshuo-navigation button:not(:disabled),
 #aside-content .card-info #card-info-btn,
+#aside-content .card-info #custom-img-btn,
 .post-reward .reward-button,
 #rightside > div > button,
 #rightside > div > a,
@@ -481,6 +482,7 @@ canvas:not(#ribbon-canvas),
 .btn-effects:hover,
 .shuoshuo-navigation button:not(:disabled):hover,
 #aside-content .card-info #card-info-btn:hover,
+#aside-content .card-info #custom-img-btn:hover,
 .post-reward .reward-button:hover,
 #rightside > div > button:hover,
 #rightside > div > a:hover,
@@ -500,6 +502,7 @@ canvas:not(#ribbon-canvas),
 .btn-effects:active,
 .shuoshuo-navigation button:not(:disabled):active,
 #aside-content .card-info #card-info-btn:active,
+#aside-content .card-info #custom-img-btn:active,
 .post-reward .reward-button:active,
 #rightside > div > button:active,
 #rightside > div > a:active,
@@ -521,6 +524,7 @@ canvas:not(#ribbon-canvas),
 .btn-effects i,
 .shuoshuo-navigation button:not(:disabled) i,
 #aside-content .card-info #card-info-btn i,
+#aside-content .card-info #custom-img-btn i,
 .post-reward .reward-button i,
 #rightside > div > button i,
 #rightside > div > a i,
@@ -539,6 +543,7 @@ canvas:not(#ribbon-canvas),
 .btn-effects:hover i,
 .shuoshuo-navigation button:not(:disabled):hover i,
 #aside-content .card-info #card-info-btn:hover i,
+#aside-content .card-info #custom-img-btn:hover i,
 .post-reward .reward-button:hover i,
 #rightside > div > button:hover i,
 #rightside > div > a:hover i,
@@ -555,6 +560,7 @@ canvas:not(#ribbon-canvas),
 .btn-effects i + span,
 .shuoshuo-navigation button:not(:disabled) i + span,
 #aside-content .card-info #card-info-btn i + span,
+#aside-content .card-info #custom-img-btn i + span,
 .post-reward .reward-button i + span,
 #rightside > div > button i + span,
 #rightside > div > a i + span,
@@ -573,6 +579,7 @@ canvas:not(#ribbon-canvas),
 .btn-effects:hover i + span,
 .shuoshuo-navigation button:not(:disabled):hover i + span,
 #aside-content .card-info #card-info-btn:hover i + span,
+#aside-content .card-info #custom-img-btn:hover i + span,
 .post-reward .reward-button:hover i + span,
 #rightside > div > button:hover i + span,
 #rightside > div > a:hover i + span,
@@ -585,6 +592,7 @@ canvas:not(#ribbon-canvas),
 .btn-effects::before,
 .shuoshuo-navigation button:not(:disabled)::before,
 #aside-content .card-info #card-info-btn::before,
+#aside-content .card-info #custom-img-btn::before,
 .post-reward .reward-button::before,
 #rightside > div > button::before,
 #rightside > div > a::before,
@@ -613,6 +621,7 @@ canvas:not(#ribbon-canvas),
 .btn-effects:hover::before,
 .shuoshuo-navigation button:not(:disabled):hover::before,
 #aside-content .card-info #card-info-btn:hover::before,
+#aside-content .card-info #custom-img-btn:hover::before,
 .post-reward .reward-button:hover::before,
 #rightside > div > button:hover::before,
 #rightside > div > a:hover::before,
@@ -625,6 +634,7 @@ canvas:not(#ribbon-canvas),
 .btn-effects > *,
 .shuoshuo-navigation button:not(:disabled) > *,
 #aside-content .card-info #card-info-btn > *,
+#aside-content .card-info #custom-img-btn > *,
 .post-reward .reward-button > *,
 #rightside > div > button > *,
 #rightside > div > a > *,
@@ -3939,6 +3949,21 @@ figure.highlight pre .javascript .function {
   background-color: var(--btn-hover-color);
 }
 #aside-content .card-info #card-info-btn span {
+  padding-left: 10px;
+}
+#aside-content .card-info #custom-img-btn {
+  display: block;
+  margin-top: 14px;
+  background-color: #45bcf8;
+  color: #fff;
+  text-align: center;
+  line-height: 2.4;
+  border-radius: 7px;
+}
+#aside-content .card-info #custom-img-btn:hover {
+  background-color: #45bcf8;
+}
+#aside-content .card-info #custom-img-btn span {
   padding-left: 10px;
 }
 #aside-content .item-headline {
