@@ -7,7 +7,7 @@
     <link href="https://blog.uuanqin.top/atom.xml" rel="self"/>
     
     <link href="https://blog.uuanqin.top/"/>
-    <updated>2026-03-16T13:45:15.674Z</updated>
+    <updated>2026-03-19T09:30:40.130Z</updated>
     <id>https://blog.uuanqin.top/</id>
     
     <author>
@@ -16,6 +16,29 @@
     </author>
     
     <generator uri="https://hexo.io/">Hexo</generator>
+    
+    <entry>
+        <title>Waline 自建 Auth 认证</title>
+        <link href="https://blog.uuanqin.top/p/c7d4d021/"/>
+        <id>https://blog.uuanqin.top/p/c7d4d021/</id>
+        <published>2026-03-19T09:25:03.000Z</published>
+        <updated>2026-03-19T09:30:40.130Z</updated>
+        
+        
+        <summary type="html">Waline 自定义第三方认证，是接入博客统一认证登录系统的开始</summary>
+        
+        
+        
+        <category term="博客站点维护" scheme="https://blog.uuanqin.top/pages/categories/%E5%8D%9A%E5%AE%A2%E7%AB%99%E7%82%B9%E7%BB%B4%E6%8A%A4/"/>
+        
+        <category term="Waline" scheme="https://blog.uuanqin.top/pages/categories/%E5%8D%9A%E5%AE%A2%E7%AB%99%E7%82%B9%E7%BB%B4%E6%8A%A4/Waline/"/>
+        
+        
+        <category term="Waline" scheme="https://blog.uuanqin.top/pages/tags/Waline/"/>
+        
+        <category term="OAuth2.0" scheme="https://blog.uuanqin.top/pages/tags/OAuth2-0/"/>
+        
+    </entry>
     
     <entry>
         <title>记一次行李托运理赔流程（南航）</title>
@@ -242,9 +265,9 @@
         <category term="游记" scheme="https://blog.uuanqin.top/pages/categories/%E7%99%BE%E5%91%B3%E4%BA%BA%E7%94%9F/%E6%B8%B8%E8%AE%B0/"/>
         
         
-        <category term="WePlay" scheme="https://blog.uuanqin.top/pages/tags/WePlay/"/>
-        
         <category term="上海" scheme="https://blog.uuanqin.top/pages/tags/%E4%B8%8A%E6%B5%B7/"/>
+        
+        <category term="WePlay" scheme="https://blog.uuanqin.top/pages/tags/WePlay/"/>
         
         <category term="乌合之众" scheme="https://blog.uuanqin.top/pages/tags/%E4%B9%8C%E5%90%88%E4%B9%8B%E4%BC%97/"/>
         
@@ -387,8 +410,6 @@
         <category term="算法与数据结构" scheme="https://blog.uuanqin.top/pages/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
         
         
-        <category term="面试" scheme="https://blog.uuanqin.top/pages/tags/%E9%9D%A2%E8%AF%95/"/>
-        
         <category term="哈希" scheme="https://blog.uuanqin.top/pages/tags/%E5%93%88%E5%B8%8C/"/>
         
         <category term="排序" scheme="https://blog.uuanqin.top/pages/tags/%E6%8E%92%E5%BA%8F/"/>
@@ -410,6 +431,8 @@
         <category term="优先队列" scheme="https://blog.uuanqin.top/pages/tags/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/"/>
         
         <category term="布隆过滤器" scheme="https://blog.uuanqin.top/pages/tags/%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8/"/>
+        
+        <category term="面试" scheme="https://blog.uuanqin.top/pages/tags/%E9%9D%A2%E8%AF%95/"/>
         
         <category term="多路归并" scheme="https://blog.uuanqin.top/pages/tags/%E5%A4%9A%E8%B7%AF%E5%BD%92%E5%B9%B6/"/>
         
@@ -533,31 +556,6 @@
         <category term="Java" scheme="https://blog.uuanqin.top/pages/tags/Java/"/>
         
         <category term="设计模式" scheme="https://blog.uuanqin.top/pages/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-        
-    </entry>
-    
-    <entry>
-        <title>装饰器模式：相框</title>
-        <link href="https://blog.uuanqin.top/p/933c61ed/"/>
-        <id>https://blog.uuanqin.top/p/933c61ed/</id>
-        <published>2025-08-18T14:54:03.000Z</published>
-        <updated>2026-02-01T08:42:42.030Z</updated>
-        
-        
-        <summary type="html">装饰边框与被装饰物的一致性。不断地为对象添加装饰。</summary>
-        
-        
-        
-        <category term="高质量代码及设计模式" scheme="https://blog.uuanqin.top/pages/categories/%E9%AB%98%E8%B4%A8%E9%87%8F%E4%BB%A3%E7%A0%81%E5%8F%8A%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-        
-        
-        <category term="Java" scheme="https://blog.uuanqin.top/pages/tags/Java/"/>
-        
-        <category term="设计模式" scheme="https://blog.uuanqin.top/pages/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-        
-        <category term="组合" scheme="https://blog.uuanqin.top/pages/tags/%E7%BB%84%E5%90%88/"/>
-        
-        <category term="Wrapper" scheme="https://blog.uuanqin.top/pages/tags/Wrapper/"/>
         
     </entry>
     
