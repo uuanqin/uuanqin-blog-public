@@ -224,8 +224,6 @@
         
         <category term="阿里云" scheme="https://blog.uuanqin.top/pages/tags/%E9%98%BF%E9%87%8C%E4%BA%91/"/>
         
-        <category term="Navicat" scheme="https://blog.uuanqin.top/pages/tags/Navicat/"/>
-        
         <category term="PostgreSQL" scheme="https://blog.uuanqin.top/pages/tags/PostgreSQL/"/>
         
         <category term="PGVector" scheme="https://blog.uuanqin.top/pages/tags/PGVector/"/>
@@ -243,6 +241,8 @@
         <category term="Spring AI" scheme="https://blog.uuanqin.top/pages/tags/Spring-AI/"/>
         
         <category term="RAG" scheme="https://blog.uuanqin.top/pages/tags/RAG/"/>
+        
+        <category term="Navicat" scheme="https://blog.uuanqin.top/pages/tags/Navicat/"/>
         
     </entry>
     
@@ -348,11 +348,11 @@
         
         <category term="Java" scheme="https://blog.uuanqin.top/pages/tags/Java/"/>
         
-        <category term="动态规划" scheme="https://blog.uuanqin.top/pages/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
-        
         <category term="LCS" scheme="https://blog.uuanqin.top/pages/tags/LCS/"/>
         
         <category term="KMP" scheme="https://blog.uuanqin.top/pages/tags/KMP/"/>
+        
+        <category term="动态规划" scheme="https://blog.uuanqin.top/pages/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
         
         <category term="编辑距离" scheme="https://blog.uuanqin.top/pages/tags/%E7%BC%96%E8%BE%91%E8%B7%9D%E7%A6%BB/"/>
         
@@ -433,6 +433,8 @@
         <category term="算法与数据结构" scheme="https://blog.uuanqin.top/pages/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
         
         
+        <category term="面试" scheme="https://blog.uuanqin.top/pages/tags/%E9%9D%A2%E8%AF%95/"/>
+        
         <category term="哈希" scheme="https://blog.uuanqin.top/pages/tags/%E5%93%88%E5%B8%8C/"/>
         
         <category term="排序" scheme="https://blog.uuanqin.top/pages/tags/%E6%8E%92%E5%BA%8F/"/>
@@ -454,8 +456,6 @@
         <category term="优先队列" scheme="https://blog.uuanqin.top/pages/tags/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/"/>
         
         <category term="布隆过滤器" scheme="https://blog.uuanqin.top/pages/tags/%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8/"/>
-        
-        <category term="面试" scheme="https://blog.uuanqin.top/pages/tags/%E9%9D%A2%E8%AF%95/"/>
         
         <category term="多路归并" scheme="https://blog.uuanqin.top/pages/tags/%E5%A4%9A%E8%B7%AF%E5%BD%92%E5%B9%B6/"/>
         
