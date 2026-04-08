@@ -7,7 +7,7 @@
     <link href="https://blog.uuanqin.top/atom.xml" rel="self"/>
     
     <link href="https://blog.uuanqin.top/"/>
-    <updated>2026-03-22T17:53:55.428Z</updated>
+    <updated>2026-04-08T20:16:11.273Z</updated>
     <id>https://blog.uuanqin.top/</id>
     
     <author>
@@ -18,11 +18,59 @@
     <generator uri="https://hexo.io/">Hexo</generator>
     
     <entry>
+        <title>Keycloak 的部署以及 Hexo-Butterfly 网页应用的接入</title>
+        <link href="https://blog.uuanqin.top/p/131c2726/"/>
+        <id>https://blog.uuanqin.top/p/131c2726/</id>
+        <published>2026-04-08T20:05:44.000Z</published>
+        <updated>2026-04-08T20:16:11.273Z</updated>
+        
+        
+        <summary type="html">AI Coding的一次实践，为授权文章功能做基础</summary>
+        
+        
+        
+        <category term="博客站点维护" scheme="https://blog.uuanqin.top/pages/categories/%E5%8D%9A%E5%AE%A2%E7%AB%99%E7%82%B9%E7%BB%B4%E6%8A%A4/"/>
+        
+        <category term="Hexo" scheme="https://blog.uuanqin.top/pages/categories/%E5%8D%9A%E5%AE%A2%E7%AB%99%E7%82%B9%E7%BB%B4%E6%8A%A4/Hexo/"/>
+        
+        
+        <category term="JavaScript" scheme="https://blog.uuanqin.top/pages/tags/JavaScript/"/>
+        
+        <category term="Butterfly" scheme="https://blog.uuanqin.top/pages/tags/Butterfly/"/>
+        
+        <category term="Keycloak" scheme="https://blog.uuanqin.top/pages/tags/Keycloak/"/>
+        
+    </entry>
+    
+    <entry>
+        <title>随机访问文章的实现（Sitemap+本地缓存优化）</title>
+        <link href="https://blog.uuanqin.top/p/717b7000/"/>
+        <id>https://blog.uuanqin.top/p/717b7000/</id>
+        <published>2026-04-07T15:07:00.000Z</published>
+        <updated>2026-04-08T19:46:38.404Z</updated>
+        
+        
+        <summary type="html">AI 增强博客网站的案例</summary>
+        
+        
+        
+        <category term="博客站点维护" scheme="https://blog.uuanqin.top/pages/categories/%E5%8D%9A%E5%AE%A2%E7%AB%99%E7%82%B9%E7%BB%B4%E6%8A%A4/"/>
+        
+        <category term="Hexo" scheme="https://blog.uuanqin.top/pages/categories/%E5%8D%9A%E5%AE%A2%E7%AB%99%E7%82%B9%E7%BB%B4%E6%8A%A4/Hexo/"/>
+        
+        
+        <category term="JavaScript" scheme="https://blog.uuanqin.top/pages/tags/JavaScript/"/>
+        
+        <category term="sitemap" scheme="https://blog.uuanqin.top/pages/tags/sitemap/"/>
+        
+    </entry>
+    
+    <entry>
         <title>Authentik 的部署记录</title>
         <link href="https://blog.uuanqin.top/p/7146cec9/"/>
         <id>https://blog.uuanqin.top/p/7146cec9/</id>
         <published>2026-03-20T11:49:53.000Z</published>
-        <updated>2026-03-22T17:53:55.428Z</updated>
+        <updated>2026-03-28T07:45:21.140Z</updated>
         
         
         <summary type="html">最后还是有坑</summary>
@@ -45,7 +93,7 @@
         <link href="https://blog.uuanqin.top/p/c7d4d021/"/>
         <id>https://blog.uuanqin.top/p/c7d4d021/</id>
         <published>2026-03-19T09:25:03.000Z</published>
-        <updated>2026-03-19T09:30:40.130Z</updated>
+        <updated>2026-04-07T07:07:05.546Z</updated>
         
         
         <summary type="html">Waline 自定义第三方认证，是接入博客统一认证登录系统的开始</summary>
@@ -506,56 +554,6 @@
         
         
         <category term="Java" scheme="https://blog.uuanqin.top/pages/tags/Java/"/>
-        
-        <category term="设计模式" scheme="https://blog.uuanqin.top/pages/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-        
-    </entry>
-    
-    <entry>
-        <title>Java 不可变类与不变模式</title>
-        <link href="https://blog.uuanqin.top/p/e0b8ae0b/"/>
-        <id>https://blog.uuanqin.top/p/e0b8ae0b/</id>
-        <published>2025-08-27T14:54:00.000Z</published>
-        <updated>2026-02-01T07:22:25.307Z</updated>
-        
-        
-        <summary type="html">资源节约与线程安全的手段</summary>
-        
-        
-        
-        <category term="计算机语言" scheme="https://blog.uuanqin.top/pages/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%AF%AD%E8%A8%80/"/>
-        
-        
-        <category term="Java" scheme="https://blog.uuanqin.top/pages/tags/Java/"/>
-        
-        <category term="多线程" scheme="https://blog.uuanqin.top/pages/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
-        
-        <category term="享元模式" scheme="https://blog.uuanqin.top/pages/tags/%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F/"/>
-        
-    </entry>
-    
-    <entry>
-        <title>EventBus 框架的简易实现</title>
-        <link href="https://blog.uuanqin.top/p/2c61e522/"/>
-        <id>https://blog.uuanqin.top/p/2c61e522/</id>
-        <published>2025-08-26T13:38:30.000Z</published>
-        <updated>2026-02-01T07:00:46.561Z</updated>
-        
-        
-        <summary type="html">观察者模式的框架实现</summary>
-        
-        
-        
-        <category term="技术学习" scheme="https://blog.uuanqin.top/pages/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
-        
-        
-        <category term="Java" scheme="https://blog.uuanqin.top/pages/tags/Java/"/>
-        
-        <category term="Google Guava EventBus" scheme="https://blog.uuanqin.top/pages/tags/Google-Guava-EventBus/"/>
-        
-        <category term="框架" scheme="https://blog.uuanqin.top/pages/tags/%E6%A1%86%E6%9E%B6/"/>
-        
-        <category term="反射" scheme="https://blog.uuanqin.top/pages/tags/%E5%8F%8D%E5%B0%84/"/>
         
         <category term="设计模式" scheme="https://blog.uuanqin.top/pages/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
         
