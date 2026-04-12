@@ -1,1 +1,1 @@
-{"data":{"total":1,"count":3,"pages":[{"index":1,"count":3,"api":"api/tags/YAML/page.1.json","info":{"type":"tag","name":"YAML","slug":"YAML"}}],"info":{"type":"tag","name":"YAML","slug":"YAML"}},"api":"api/tags/YAML.json"}
+{"data":{"total":1,"count":1,"pages":[{"index":1,"count":1,"api":"api/tags/yaml/page.1.json","info":{"type":"tag","name":"yaml","slug":"yaml"}}],"info":{"type":"tag","name":"yaml","slug":"yaml"}},"api":"api/tags/yaml.json"}

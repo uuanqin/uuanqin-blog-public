@@ -1,1 +1,1 @@
-{"data":{"total":1,"count":1,"pages":[{"index":1,"count":1,"api":"api/tags/Pug/page.1.json","info":{"type":"tag","name":"Pug","slug":"Pug"}}],"info":{"type":"tag","name":"Pug","slug":"Pug"}},"api":"api/tags/Pug.json"}
+{"data":{"total":1,"count":1,"pages":[{"index":1,"count":1,"api":"api/tags/pug/page.1.json","info":{"type":"tag","name":"pug","slug":"pug"}}],"info":{"type":"tag","name":"pug","slug":"pug"}},"api":"api/tags/pug.json"}
