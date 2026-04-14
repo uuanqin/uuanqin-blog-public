@@ -1,1 +1,1 @@
-{"data":{"total":1,"count":1,"pages":[{"index":1,"count":1,"api":"api/tags/cron/page.1.json","info":{"type":"tag","name":"cron","slug":"cron"}}],"info":{"type":"tag","name":"cron","slug":"cron"}},"api":"api/tags/cron.json"}
+{"data":{"total":1,"count":1,"pages":[{"index":1,"count":1,"api":"api/tags/Cron/page.1.json","info":{"type":"tag","name":"Cron","slug":"Cron"}}],"info":{"type":"tag","name":"Cron","slug":"Cron"}},"api":"api/tags/Cron.json"}

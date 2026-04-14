@@ -1,1 +1,1 @@
-{"data":{"total":1,"count":1,"pages":[{"index":1,"count":1,"api":"api/tags/hexo/page.1.json","info":{"type":"tag","name":"hexo","slug":"hexo"}}],"info":{"type":"tag","name":"hexo","slug":"hexo"}},"api":"api/tags/hexo.json"}
+{"data":{"total":1,"count":10,"pages":[{"index":1,"count":10,"api":"api/tags/Hexo/page.1.json","info":{"type":"tag","name":"Hexo","slug":"Hexo"}}],"info":{"type":"tag","name":"Hexo","slug":"Hexo"}},"api":"api/tags/Hexo.json"}
