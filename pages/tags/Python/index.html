@@ -25,7 +25,7 @@
   line-height: 0;
   margin: 20px auto;
   width: fit-content;
-  background: var(--live-bg-gray);
+  /*background: var(--live-bg-gray);*/ /* 保持透明背景，避免夜间模式下显示异常 */
   justify-content: center;
   align-items: center;
 }
@@ -1332,6 +1332,252 @@ class HexoLivePhoto {
     this.video.onerror = () => {
       this.videoFailed = true;
       this.checkTotalFailure();
+    };
+  }
+
+  checkTotalFailure() {
+    // 判断图片是否失效：包括加载失败、src为空、或者是那个1x1的透明占位符
+    const isImgInvalid = this.imgFailed ||
+      !this.staticImage.src ||
+      this.staticImage.src.includes('data:image/gif');
+
+    if (this.videoFailed) {
+      if (isImgInvalid) {
+        // 情况 A：全错（视频坏了 + 图片也坏了）
+        this.container.classList.add('is-total-error');
+        this.container.classList.remove('is-video-error'); // 必须移除，防止干扰 CSS
+      } else {
+        // 情况 B：仅视频错（视频坏了 + 图片是好的）
+        this.container.classList.add('is-video-error');
+        this.container.classList.remove('is-total-error');
+      }
+    } else {
+      // 如果视频没坏，确保这两个错误类都不存在
+      this.container.classList.remove('is-total-error', 'is-video-error');
+    }
+  }
+
+  // 处理悬停开始
+  handleHoverStart() {
+    // 清除之前的超时
+    if (this.hoverTimeout) clearTimeout(this.hoverTimeout);
+
+    // 设置延迟播放
+    this.hoverTimeout = setTimeout(() => {
+      this.play();
+    }, this.config.hover_delay || 300);
+  }
+
+  // 处理悬停结束
+  handleHoverEnd() {
+    // 清除悬停超时
+    if (this.hoverTimeout) {
+      clearTimeout(this.hoverTimeout);
+      this.hoverTimeout = null;
+    }
+
+    // 如果视频是循环播放的(loop)，鼠标移开必须立刻停止，否则声音和画面会在后台无限消耗
+    if (this.video.loop) {
+      // 鼠标离开时，我们不停止视频，而是“静音”它
+      // 这样画面会继续循环播放，但声音会消失，解决了你担心的扰民问题
+      this.video.muted = true;
+      if (this.soundToggle) {
+        this.soundToggle.classList.remove("is-unmuted");
+      }
+    }
+  }
+
+  // 显示加载指示器
+  showLoading() {
+    let loadingEl = this.container.querySelector(".live-loading");
+    if (!loadingEl && this.config.loading_animation) {
+      loadingEl = document.createElement("div");
+      loadingEl.className = "live-loading";
+      this.container.appendChild(loadingEl);
+    }
+    if (loadingEl) {
+      loadingEl.style.display = "block";
+    }
+  }
+
+  // 隐藏加载指示器
+  hideLoading() {
+    const loadingEl = this.container.querySelector(".live-loading");
+    if (loadingEl) {
+      loadingEl.style.display = "none";
+    }
+  }
+
+  // 播放视频
+  play() {
+    if (this.isPlaying) return;
+    this.isPlaying = true;
+
+    const playPromise = this.video.play();
+
+    if (playPromise !== undefined) {
+      playPromise.catch(error => {
+        // 处理由于浏览器策略导致的播放失败（如需要手动点击）
+        console.warn("Live-Photo Play Interrupted:", error);
+        this.stop();
+      });
+    }
+  }
+
+  // 停止播放
+  stop() {
+    if (this.badgeTimer) clearTimeout(this.badgeTimer);
+    this.container.classList.remove('is-loading');
+    this.video.classList.remove("playing");
+    this.staticImage.style.opacity = 1;
+    this.isPlaying = false;
+    // 强制回到视频开头，方便下次播放
+    this.video.pause();
+    // 只有非 loop 视频才重置时间，loop 视频让它在后台静音跑
+    if (!this.video.loop) {
+      this.video.currentTime = 0;
+    }
+    // 静音只启动一次
+    this.video.muted = true;
+    this.soundToggle.classList.remove("is-unmuted");
+  }
+
+  // 自动播放（当进入视口时）
+  autoPlay() {
+    if (!this.hasAutoPlayed && this.config.autoplay) {
+      this.hasAutoPlayed = true;
+      this.play();
+    }
+  }
+
+
+  // 添加声音切换方法
+  toggleSound() {
+    if (!this.video) return;
+
+    // 切换静音状态
+    this.video.muted = !this.video.muted;
+
+    // 更新 UI 状态
+    if (this.video.muted) {
+      this.soundToggle.classList.remove("is-unmuted");
+    } else {
+      this.soundToggle.classList.add("is-unmuted");
+      // 如果切换到有声且当前没在播，尝试播放（处理移动端静音自动播放后的手动开启）
+      if (this.video.paused) {
+        this.play();
+      }
+    }
+  }
+}
+
+// 页面主控制器
+class HexoLivePhotoPage {
+  constructor(config) {
+    this.config = config;
+    this.livePhotos = new Map();
+    this.observer = null;
+    this.isWeixin = /micromessenger/i.test(navigator.userAgent);
+    this.init();
+  }
+
+  // 初始化
+  init() {
+    this.detectLivePhotos();
+
+    // 检测是否为微信环境
+    // const isWeixin = navigator.userAgent
+    //   .toLowerCase()
+    //   .includes("micromessenger");
+
+    // 如果在微信环境中且禁用自动播放，则不设置Intersection Observer
+    if (this.isWeixin && this.config.weixin_disable_autoplay) {
+      return;
+    }
+
+    // 如果启用懒加载，设置Intersection Observer
+    if (this.config.lazy_load) {
+      this.setupIntersectionObserver();
+    } else if (this.config.autoplay) {
+      // 如果不使用懒加载，直接自动播放所有
+      this.livePhotos.forEach((livePhoto) => livePhoto.autoPlay());
+    }
+  }
+
+  // 检测页面中的所有Live Photo容器
+  detectLivePhotos() {
+    const containers = document.querySelectorAll(".live-photo-container");
+
+    containers.forEach((container) => {
+      // 检查是否已经初始化过
+      if (!container.dataset.initialized) {
+        const livePhoto = new HexoLivePhoto(container, this.config);
+        this.livePhotos.set(container, livePhoto);
+        container.dataset.initialized = "true";
+      }
+    });
+  }
+
+  // 设置Intersection Observer
+  setupIntersectionObserver() {
+    if (this.observer) {
+      this.observer.disconnect();
+    }
+
+    this.observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const container = entry.target;
+          const livePhoto = this.livePhotos.get(container);
+          if (!livePhoto) return;
+
+          if (entry.isIntersecting) {
+            // 进入屏幕：自动播放
+            livePhoto.autoPlay();
+            if (!this.config.keep_observing) {
+              this.observer.unobserve(container);
+            }
+          } else if (livePhoto.isPlaying) {
+            // 移出屏幕时，必须强制停止播放
+            livePhoto.stop();
+          }
+        });
+      },
+      {
+        threshold: this.config.threshold || 0.1,
+        rootMargin: "0px 0px 10% 0px",
+      }
+    );
+
+    this.livePhotos.forEach((_, el) => this.observer.observe(el));
+  }
+}
+
+// 当DOM加载完成后初始化
+document.addEventListener("DOMContentLoaded", function () {
+  if (window.HexoLivePhotoConfig && window.HexoLivePhotoConfig.enable) {
+    window.hexoLivePhotoPage = new HexoLivePhotoPage(window.HexoLivePhotoConfig);
+  }
+});
+</script> <script data-pjax>if(document.getElementById('recent-posts') && (location.pathname ==='/'|| '/' ==='all')){
+    var parent = document.getElementById('recent-posts');
+    var child = '<div class="recent-post-item" style="width:100%;height: auto"><div id="catalog_magnet"><div class="magnet_item"><a class="magnet_link" href="/pages/categories/博客站点维护/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🎨 博客维护与美化 (51)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="/pages/categories/高质量代码及设计模式/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🔷 代码质量 (19)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="/pages/categories/百味人生/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🏄‍♂️ 热爱生活 (21)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="/pages/categories/嵌入式/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🧩 嵌入式开发 (16)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="/pages/categories/技术学习/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🧑‍💻 桩桩猫学技术 (13)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="/pages/categories/算法与数据结构/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🧮 算法日记 (27)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><a class="magnet_link_more"  href="/pages/categories/" style="flex:1;text-align: center;margin-bottom: 10px;">查看更多...</a></div></div>';
+    console.log('已挂载magnet')
+    parent.insertAdjacentHTML("afterbegin",child)}
+     </script><style>#catalog_magnet{flex-wrap: wrap;display: flex;width:100%;justify-content:space-between;padding: 10px 10px 0 10px;align-content: flex-start;}.magnet_item{flex-basis: calc(33.333333333333336% - 5px);background: #f2f2f2;margin-bottom: 10px;border-radius: 8px;transition: all 0.2s ease-in-out;}.magnet_item:hover{background: #669900}.magnet_link_more{color:#555}.magnet_link{color:black}.magnet_link:hover{color:white}@media screen and (max-width: 600px) {.magnet_item {flex-basis: 100%;}}.magnet_link_context{display:flex;padding: 10px;font-size:16px;transition: all 0.2s ease-in-out;}.magnet_link_context:hover{padding: 10px 20px;}</style>
+    <style></style> <script data-pjax>if(document.getElementById('recent-posts') && location.pathname =='/'){
+    
+    var parent = document.getElementById('recent-posts');
+    var child = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms"><div class="blog-slider__img"><img src="https://cdn.gallery.uuanqin.top/img/hexoobsidian-Grammar.webp" alt="https://cdn.gallery.uuanqin.top/img/hexoobsidian-Grammar.webp"/></div><div class="blog-slider__content"><span class="blog-slider__code">2023-08-01</span><a class="blog-slider__title" href="p/d4bc55f2/">Hexo 博客适配 Obsidian 新语法</a><div class="blog-slider__text">你可能在寻找这篇文章</div><a class="blog-slider__button" href="p/d4bc55f2/">详情</a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms"><div class="blog-slider__img"><img src="https://cdn.gallery.uuanqin.top/img/202408042352584.webp" alt="https://cdn.gallery.uuanqin.top/img/202408042352584.webp"/></div><div class="blog-slider__content"><span class="blog-slider__code">2024-08-04</span><a class="blog-slider__title" href="p/e1ee5eca/">Hexo 博客与 Waline 评论区实现外链跳转中间页</a><div class="blog-slider__text">文章推荐</div><a class="blog-slider__button" href="p/e1ee5eca/">详情</a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms"><div class="blog-slider__img"><img src="https://cdn.gallery.uuanqin.top/img/202412010504201.webp" alt="https://cdn.gallery.uuanqin.top/img/202412010504201.webp"/></div><div class="blog-slider__content"><span class="blog-slider__code">2024-12-01</span><a class="blog-slider__title" href="p/7d2de43e/">防止网站被镜像的若干防护措施及反制手段</a><div class="blog-slider__text">近期热门</div><a class="blog-slider__button" href="p/7d2de43e/">详情</a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms"><div class="blog-slider__img"><img src="https://cdn.gallery.uuanqin.top/img/202412100327066.webp" alt="https://cdn.gallery.uuanqin.top/img/202412100327066.webp"/></div><div class="blog-slider__content"><span class="blog-slider__code">2024-12-10</span><a class="blog-slider__title" href="p/55893d1/">实现网站国内外分流（境外接入 Cloudflare）</a><div class="blog-slider__text">博主精选</div><a class="blog-slider__button" href="p/55893d1/">详情</a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+    console.log('已挂载swiper')
+    parent.insertAdjacentHTML("afterbegin",child)}
+     </script>
+<!--<script data-pjax src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-swiper/swiper/swiper.min.js"></script>-->
+<!--<script data-pjax src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-swiper@0.18/swiper/swiperindex.js"></script>-->
+<!--<script data-pjax src="https://cdn.gallery.uuanqin.top/js/swiperindex.js"></script>-->
+<script data-pjax src="https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/Swiper/4.1.6/js/swiper.min.js"></script>
+<script data-pjax src="/js/swiperindex.js"></script>
+<style></style><!-- hexo injector body_end end --></body></html>lFailure();
     };
   }
 
