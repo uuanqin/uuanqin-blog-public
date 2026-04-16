@@ -11,7 +11,7 @@ const CACHE_TIMES = {
   SECONDS_OF_TOKEN_MIN_VALID: 30,
   SECONDS_OF_REFRESH_THRESHOLD: 80,
   MILLISECONDS_OF_REFRESH_INTERVAL: 30000, // 30s
-  MILLISECONDS_OF_LOADING_TIMEOUT: 5000
+  // MILLISECONDS_OF_LOADING_TIMEOUT: 5000
 };
 
 // ============== UI 渲染  ==============
@@ -159,10 +159,6 @@ async function verifySignature(token) {
 // ============== 主逻辑 ==============
 
 document.addEventListener('DOMContentLoaded', async () => {
-  setTimeout(() => {
-    if (!isLoaderEnded) logger.warn("认证超时，强制 Finish ");
-    finish();
-  }, CACHE_TIMES.MILLISECONDS_OF_LOADING_TIMEOUT);
 
   const urlParams = new URLSearchParams(window.location.search);
   const action = urlParams.get('action'); // 获取我们自定义的 action 标记
