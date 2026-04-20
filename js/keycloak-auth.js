@@ -305,6 +305,10 @@ function handleAuthSuccess(token, refreshToken, payload) {
   localStorage.setItem(STORAGE_KEYS.REFRESH_TOKEN, refreshToken);
   localStorage.removeItem(STORAGE_KEYS.GUEST_DATA);
   updateLoggedInUI(payload);
+  // 配合文章解锁
+  if (typeof window.forceUnlockArticle === 'function') {
+    window.forceUnlockArticle();
+  }
 }
 
 function handleAuthFailure() {
@@ -312,6 +316,7 @@ function handleAuthFailure() {
   localStorage.setItem(STORAGE_KEYS.GUEST_DATA, JSON.stringify(cache));
   localStorage.removeItem(STORAGE_KEYS.TOKEN);
   localStorage.removeItem(STORAGE_KEYS.REFRESH_TOKEN);
+  sessionStorage.clear();
   updateLoggedOutUI();
 }
 

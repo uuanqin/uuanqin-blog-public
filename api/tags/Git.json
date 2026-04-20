@@ -1,1 +1,1 @@
-{"data":{"total":1,"count":1,"pages":[{"index":1,"count":1,"api":"api/tags/Git/page.1.json","info":{"type":"tag","name":"Git","slug":"Git"}}],"info":{"type":"tag","name":"Git","slug":"Git"}},"api":"api/tags/Git.json"}
+{"data":{"total":1,"count":1,"pages":[{"index":1,"count":1,"api":"api/tags/git/page.1.json","info":{"type":"tag","name":"git","slug":"git"}}],"info":{"type":"tag","name":"git","slug":"git"}},"api":"api/tags/git.json"}

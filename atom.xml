@@ -7,7 +7,7 @@
     <link href="https://blog.uuanqin.top/atom.xml" rel="self"/>
     
     <link href="https://blog.uuanqin.top/"/>
-    <updated>2026-04-16T19:21:02.459Z</updated>
+    <updated>2026-04-20T11:38:42.931Z</updated>
     <id>https://blog.uuanqin.top/</id>
     
     <author>
@@ -18,11 +18,38 @@
     <generator uri="https://hexo.io/">Hexo</generator>
     
     <entry>
+        <title>Keycloak 配合下实现博客文章的受限访问</title>
+        <link href="https://blog.uuanqin.top/p/9d81ea9f/"/>
+        <id>https://blog.uuanqin.top/p/9d81ea9f/</id>
+        <published>2026-04-20T11:38:56.000Z</published>
+        <updated>2026-04-20T11:38:42.931Z</updated>
+        
+        
+        <summary type="html">自由输出内容园地的最后一块砖？</summary>
+        
+        
+        
+        <category term="博客站点维护" scheme="https://blog.uuanqin.top/pages/categories/%E5%8D%9A%E5%AE%A2%E7%AB%99%E7%82%B9%E7%BB%B4%E6%8A%A4/"/>
+        
+        <category term="Hexo" scheme="https://blog.uuanqin.top/pages/categories/%E5%8D%9A%E5%AE%A2%E7%AB%99%E7%82%B9%E7%BB%B4%E6%8A%A4/Hexo/"/>
+        
+        
+        <category term="Hexo" scheme="https://blog.uuanqin.top/pages/tags/Hexo/"/>
+        
+        <category term="Vercel" scheme="https://blog.uuanqin.top/pages/tags/Vercel/"/>
+        
+        <category term="Butterfly" scheme="https://blog.uuanqin.top/pages/tags/Butterfly/"/>
+        
+        <category term="Keycloak" scheme="https://blog.uuanqin.top/pages/tags/Keycloak/"/>
+        
+    </entry>
+    
+    <entry>
         <title>试试用代码块在 Hexo 中插入实况照片</title>
         <link href="https://blog.uuanqin.top/p/da4ac563/"/>
         <id>https://blog.uuanqin.top/p/da4ac563/</id>
         <published>2026-04-14T20:01:27.000Z</published>
-        <updated>2026-04-16T19:21:02.459Z</updated>
+        <updated>2026-04-17T14:16:07.933Z</updated>
         
         
         <summary type="html">例行的插件推广文，不过这篇文章参杂了很多开发杂记</summary>
@@ -49,14 +76,14 @@
         <link href="https://blog.uuanqin.top/p/6338f82f/"/>
         <id>https://blog.uuanqin.top/p/6338f82f/</id>
         <published>2026-04-14T13:36:40.000Z</published>
-        <updated>2026-04-16T18:45:32.734Z</updated>
+        <updated>2026-04-20T07:11:53.479Z</updated>
         
         
         <summary type="html">用于测试插件 hexo-filter-live-photo</summary>
         
         
         
-        <category term="核心协同" scheme="https://blog.uuanqin.top/pages/categories/%E6%A0%B8%E5%BF%83%E5%8D%8F%E5%90%8C/"/>
+        <category term="阿-测试文章" scheme="https://blog.uuanqin.top/pages/categories/%E9%98%BF-%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/"/>
         
         
         <category term="Hexo" scheme="https://blog.uuanqin.top/pages/tags/Hexo/"/>
@@ -101,7 +128,7 @@
         <link href="https://blog.uuanqin.top/p/131c2726/"/>
         <id>https://blog.uuanqin.top/p/131c2726/</id>
         <published>2026-04-08T20:05:44.000Z</published>
-        <updated>2026-04-12T10:22:12.728Z</updated>
+        <updated>2026-04-20T09:12:04.416Z</updated>
         
         
         <summary type="html">AI Coding的一次实践，为授权文章功能做基础</summary>
@@ -415,9 +442,9 @@
         <category term="游记" scheme="https://blog.uuanqin.top/pages/categories/%E7%99%BE%E5%91%B3%E4%BA%BA%E7%94%9F/%E6%B8%B8%E8%AE%B0/"/>
         
         
-        <category term="WePlay" scheme="https://blog.uuanqin.top/pages/tags/WePlay/"/>
-        
         <category term="上海" scheme="https://blog.uuanqin.top/pages/tags/%E4%B8%8A%E6%B5%B7/"/>
+        
+        <category term="WePlay" scheme="https://blog.uuanqin.top/pages/tags/WePlay/"/>
         
         <category term="乌合之众" scheme="https://blog.uuanqin.top/pages/tags/%E4%B9%8C%E5%90%88%E4%B9%8B%E4%BC%97/"/>
         
@@ -509,39 +536,6 @@
         <category term="树状数组" scheme="https://blog.uuanqin.top/pages/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/"/>
         
         <category term="线段树" scheme="https://blog.uuanqin.top/pages/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
-        
-    </entry>
-    
-    <entry>
-        <title>缓存置换算法的实现与 Java 中相关的数据结构</title>
-        <link href="https://blog.uuanqin.top/p/270917b1/"/>
-        <id>https://blog.uuanqin.top/p/270917b1/</id>
-        <published>2025-09-13T10:15:18.000Z</published>
-        <updated>2026-02-01T08:42:41.927Z</updated>
-        
-        
-        <summary type="html">OPT、LRU、LFU 不再惧怕</summary>
-        
-        
-        
-        <category term="算法与数据结构" scheme="https://blog.uuanqin.top/pages/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-        
-        
-        <category term="Java" scheme="https://blog.uuanqin.top/pages/tags/Java/"/>
-        
-        <category term="LeetCode" scheme="https://blog.uuanqin.top/pages/tags/LeetCode/"/>
-        
-        <category term="LRU" scheme="https://blog.uuanqin.top/pages/tags/LRU/"/>
-        
-        <category term="LFU" scheme="https://blog.uuanqin.top/pages/tags/LFU/"/>
-        
-        <category term="OPT" scheme="https://blog.uuanqin.top/pages/tags/OPT/"/>
-        
-        <category term="缓存" scheme="https://blog.uuanqin.top/pages/tags/%E7%BC%93%E5%AD%98/"/>
-        
-        <category term="页面置换" scheme="https://blog.uuanqin.top/pages/tags/%E9%A1%B5%E9%9D%A2%E7%BD%AE%E6%8D%A2/"/>
-        
-        <category term="操作系统" scheme="https://blog.uuanqin.top/pages/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
         
     </entry>
     
