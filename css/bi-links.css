@@ -1,6 +1,5 @@
 /*https://codepen.io/ysoftaoglu/pen/JXROeY*/
 
-/* ========== 公共样式 ========== */
 .uuanqin-bilink {
     display: inline-block;
     transition: all .2s ease;
@@ -9,7 +8,7 @@
     text-decoration-style: dashed;
     text-underline-offset: 4px;
     text-decoration-color: #3399ff; /* 默认颜色 */
-    z-index: 2; /* 设置极高的层级值，确保在最上层（避免被文章摘要遮到了） */
+    z-index: 2;
     word-break: break-all;
     overflow-wrap: break-word;
 }
@@ -33,14 +32,11 @@ span.bilink-pop-up {
     line-height: normal;
     color: #fff;
     background-color: #3399ff; /* 默认颜色 */
-    /*************** 复制问题的解决 *****************/
     pointer-events: none;  /* 防止鼠标干扰 hover */
     user-select: none;     /* 禁止选中文本 */
-    /** 兼容性 **/
     -webkit-user-select: none; /* Safari/Chrome */
     -moz-user-select: none;    /* Firefox */
     -ms-user-select: none;     /* IE10+ */
-
 }
 
 
@@ -54,7 +50,6 @@ span.bilink-pop-up {
 
 .uuanqin-bilink:hover span.bilink-pop-up,
 .uuanqin-bilink:focus span.bilink-pop-up {
-    /*transform: translateY(-2px);*/
     opacity: 1;
 }
 
@@ -70,15 +65,13 @@ span.bilink-pop-up {
 }
 
 .uuanqin-bilink[href$="/p/undefined/"] span.bilink-pop-up {
-    font-size: 0; /* 隐藏原文字 */
+    font-size: 0;
 }
 
 .uuanqin-bilink[href$="/p/undefined/"] span.bilink-pop-up::before {
-    font-size: 12px; /* 恢复正常大小 */
+    font-size: 12px;
 }
 
-
-/***************** 解决频闪问题 **************************/
 .uuanqin-bilink {
     position: relative;
     display: inline-block;

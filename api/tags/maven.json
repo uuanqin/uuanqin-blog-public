@@ -1,1 +1,1 @@
-{"data":{"total":1,"count":1,"pages":[{"index":1,"count":1,"api":"api/tags/maven/page.1.json","info":{"type":"tag","name":"maven","slug":"maven"}}],"info":{"type":"tag","name":"maven","slug":"maven"}},"api":"api/tags/maven.json"}
+{"data":{"total":1,"count":1,"pages":[{"index":1,"count":1,"api":"api/tags/Maven/page.1.json","info":{"type":"tag","name":"Maven","slug":"Maven"}}],"info":{"type":"tag","name":"Maven","slug":"Maven"}},"api":"api/tags/Maven.json"}

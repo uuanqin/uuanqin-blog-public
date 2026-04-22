@@ -5041,7 +5041,19 @@ figure.highlight pre .javascript .function {
     font-size: 90%;
   }
   #post-info #post-meta > .meta-firstline,
-  #post-info #post-meta > .meta-secondline {
+  #post-info #post-meta > .meta-secondline,
+  #post-info #post-meta > .meta-thirdline {
+    display: inline;
+  }
+}
+#post-info #post-meta .meta-thirdline > .post-meta-separator:first-child {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  #post-info #post-meta .meta-thirdline {
+    display: inline;
+  }
+  #post-info #post-meta .meta-thirdline > .post-meta-separator:first-child {
     display: inline;
   }
 }
