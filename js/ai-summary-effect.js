@@ -2,8 +2,8 @@
 // 打字机效果
 function typeTextMachineStyle(text, targetSelector, options = {}) {
     const {
-        delay = 10,
-        startDelay = 1000,
+        delay = 5,
+        startDelay = 400,
         onComplete = null,
         clearBefore = true,
         eraseBefore = true, // 新增：是否以打字机方式清除原文本
@@ -53,13 +53,32 @@ function typeTextMachineStyle(text, targetSelector, options = {}) {
 }
 
 function renderAISummary() {
-    const summaryEl = document.querySelector('.ai-summary .ai-explanation');
-    if (!summaryEl) return;
+  const summaryEl = document.querySelector('.ai-summary .ai-explanation');
+  if (!summaryEl) return;
 
-    const summaryText = summaryEl.getAttribute('data-summary');
-    if (summaryText) {
-        typeTextMachineStyle(summaryText, ".ai-summary .ai-explanation"); // 如果需要切换，在这里调用另一个函数即可
-    }
+  const summaryText = summaryEl.getAttribute('data-summary');
+  if (summaryText) {
+    // 关键步骤：在打字前，先设置一个不可见但占位的副本
+    // 或者直接给容器设置高度
+    const tempSpan = document.createElement('span');
+    tempSpan.style.visibility = 'hidden';
+    tempSpan.textContent = summaryText;
+    summaryEl.appendChild(tempSpan);
+
+    // 获取计算后的高度并固定
+    const finalHeight = tempSpan.offsetHeight+20;
+    summaryEl.style.height = finalHeight + 'px';
+
+    // 移除临时占位并开始打字
+    summaryEl.removeChild(tempSpan);
+    summaryEl.textContent = "";
+
+    typeTextMachineStyle(summaryText, ".ai-summary .ai-explanation", {
+      onComplete: (el) => {
+        el.style.height = 'auto'; // 打字结束后恢复自动高度，避免响应式缩放时出问题
+      }
+    });
+  }
 }
 
 document.addEventListener('pjax:complete', renderAISummary);

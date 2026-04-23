@@ -24,30 +24,32 @@ async function initKnowledgeGraph(containerId, jsonPath, isSidebar = false) {
   };
 
   // 3. 数据处理
-  const nodes = Object.values(rawData).map(d => {
-    const rawAttr = d.attrs['data-category'] || "Uncategorized";
-    const parts = rawAttr.split(' / ');
-    return {
-      id: d.id,
-      name: d.title,
-      path: d.path,
-      mainCategory: parts[0],
-      depth: parts.length,
-      val: (d.bi_links.inbounds.length * 1.5) + 8
-    };
-  });
+  const nodes = Object.values(rawData)
+    .filter(d => d.isDraft !== true)
+    .map(d => {
+      const rawAttr = d.attrs['data-category'] || "";
+      const parts = rawAttr.split(' / ');
+      return {
+        id: d.id,
+        name: d.title,
+        path: d.path,
+        mainCategory: parts[0],
+        depth: parts.length,
+        val: (d.bi_links.inbounds.length * 1.5) + 8
+      };
+    });
 
   const nodeMap = new Map(nodes.map(n => [n.id, n]));
   const links = [];
   Object.values(rawData).forEach(node => {
     node.bi_links.outbounds.forEach(out => {
       if (nodeMap.has(out.id)) {
-        links.push({ source: node.id, target: out.id });
+        links.push({source: node.id, target: out.id});
       }
     });
   });
 
-  const data = { nodes, links };
+  const data = {nodes, links};
 
   // 4. 颜色与缓存
   const mainCategories = Array.from(new Set(nodes.map(d => d.mainCategory)));
@@ -64,10 +66,14 @@ async function initKnowledgeGraph(containerId, jsonPath, isSidebar = false) {
     const a = nodeMap.get(typeof link.source === 'object' ? link.source.id : link.source);
     const b = nodeMap.get(typeof link.target === 'object' ? link.target.id : link.target);
     if (a && b) {
-      if (!a.neighbors) a.neighbors = []; if (!b.neighbors) b.neighbors = [];
-      if (!a.links) a.links = []; if (!b.links) b.links = [];
-      a.neighbors.push(b); b.neighbors.push(a);
-      a.links.push(link); b.links.push(link);
+      if (!a.neighbors) a.neighbors = [];
+      if (!b.neighbors) b.neighbors = [];
+      if (!a.links) a.links = [];
+      if (!b.links) b.links = [];
+      a.neighbors.push(b);
+      b.neighbors.push(a);
+      a.links.push(link);
+      b.links.push(link);
     }
   });
 
@@ -115,28 +121,59 @@ async function initKnowledgeGraph(containerId, jsonPath, isSidebar = false) {
     .nodeCanvasObject((node, ctx, globalScale) => {
       const r = Math.sqrt(node.val) * 2;
       const isHighlighted = highlightNodes.has(node);
+      const isHovered = (node === hoverNode); // 是否是当前鼠标直接悬停的节点
+
+      // 检测夜间模式 (根据 Hexo 主题常见的实现方式)
+      const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark'
+        || document.body.classList.contains('dark-mode');
+
+      // 1. 设置透明度：非高亮节点变淡
       ctx.globalAlpha = (hoverNode && !isHighlighted) ? 0.1 : 1;
 
+      // 2. 绘制高亮光晕
       if (isHighlighted) {
         ctx.beginPath();
-        ctx.arc(node.x, node.y, r + (node === hoverNode ? 4 : 2), 0, 2 * Math.PI, false);
-        ctx.fillStyle = (node === hoverNode) ? (isSidebar ? '#fff' : '#000') : colorScale(node);
+        ctx.arc(node.x, node.y, r + (isHovered ? 5 : 2), 0, 2 * Math.PI, false);
+        // 悬停节点使用强调色（白或深灰），关联节点使用分类色
+        ctx.fillStyle = isHovered
+          ? (isDarkMode ? '#fff' : '#222')
+          : colorScale(node);
         ctx.fill();
       }
 
+      // 3. 绘制节点主体
       ctx.beginPath();
       ctx.arc(node.x, node.y, r, 0, 2 * Math.PI, false);
       ctx.fillStyle = colorScale(node);
       ctx.fill();
 
+      // 4. 绘制标题
       if (isHighlighted) {
-        const fontSize = 12 / globalScale;
-        ctx.font = `bold ${fontSize}px Sans-Serif`;
+        // 动态计算字号：Hover 的节点标题更大
+        const baseFontSize = isHovered ? 14 : 11;
+        const fontSize = baseFontSize / globalScale;
+
+        ctx.font = `${isHovered ? '900' : 'bold'} ${fontSize}px Sans-Serif`;
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
-        ctx.fillStyle = '#333';
-        ctx.fillText(node.name, node.x, node.y + r + fontSize + 2);
+
+        // 颜色适配夜间模式
+        if (isHovered) {
+          // 直接悬停的节点：使用鲜明的反色
+          ctx.fillStyle = isDarkMode ? '#fff' : '#000';
+        } else {
+          // 仅是被高亮的关联节点：使用柔和的颜色
+          ctx.fillStyle = isDarkMode ? '#bbb' : '#444';
+        }
+
+        // 绘制描边以增强可读性（可选）
+        ctx.strokeStyle = isDarkMode ? 'rgba(0,0,0,0.8)' : 'rgba(255,255,255,0.8)';
+        ctx.lineWidth = 2 / globalScale;
+        ctx.strokeText(node.name, node.x, node.y + r + fontSize + 3);
+
+        ctx.fillText(node.name, node.x, node.y + r + fontSize + 3);
       }
+
       ctx.globalAlpha = 1;
     })
     // --- 修复：正确获取 alpha 并处理分类名 ---
@@ -154,7 +191,7 @@ async function initKnowledgeGraph(containerId, jsonPath, isSidebar = false) {
       const catStats = {};
       nodes.forEach(n => {
         if (!catStats[n.mainCategory]) {
-          catStats[n.mainCategory] = { x: 0, y: 0, count: 0 };
+          catStats[n.mainCategory] = {x: 0, y: 0, count: 0};
         }
         catStats[n.mainCategory].x += n.x;
         catStats[n.mainCategory].y += n.y;
@@ -181,10 +218,16 @@ async function initKnowledgeGraph(containerId, jsonPath, isSidebar = false) {
 
         ctx.font = `900 ${fontSize}px "Inter", "PingFang SC", sans-serif`;
 
+        const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
         const baseColor = d3.hsl(mainCategoryScale(cat));
         // 这里的 0.3 是文字最大透明度，可以根据审美调高至 0.5
-        ctx.fillStyle = `rgba(${baseColor.rgb().r}, ${baseColor.rgb().g}, ${baseColor.rgb().b}, ${categoryOpacity * 0.35})`;
+        if (isDarkMode) {
+          baseColor.l = Math.max(baseColor.l, 0.7); // 确保文字够亮
+        } else {
+          baseColor.l = Math.min(baseColor.l, 0.4); // 确保文字够深
+        }
 
+        ctx.fillStyle = `rgba(${baseColor.rgb().r}, ${baseColor.rgb().g}, ${baseColor.rgb().b}, ${categoryOpacity * 0.4})`;
         ctx.fillText(cat, avgX, avgY);
       });
       ctx.restore();
@@ -228,7 +271,7 @@ async function initKnowledgeGraph(containerId, jsonPath, isSidebar = false) {
   // 6. 物理引擎微调 (修正中心坐标为容器中心)
   Graph.d3Force('charge').strength(config.repulsion).distanceMax(500);
   Graph.d3Force('link').distance(config.distance);
-  Graph.d3Force('center', d3.forceCenter(width / 2-400, height / 2-300).strength(config.gravity));
+  Graph.d3Force('center', d3.forceCenter(width / 2 - 400, height / 2 - 300).strength(config.gravity));
   Graph.d3Force('radial', d3.forceRadial(0, width / 2, height / 2).strength(config.radialStrength));
   Graph.d3Force('collide', d3.forceCollide().radius(n => Math.sqrt(n.val) * 2 + config.collideRadius));
   Graph.d3VelocityDecay(config.friction);

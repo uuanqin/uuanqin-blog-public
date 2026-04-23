@@ -7,7 +7,7 @@
     <link href="https://blog.uuanqin.top/atom.xml" rel="self"/>
     
     <link href="https://blog.uuanqin.top/"/>
-    <updated>2026-04-22T16:56:27.757Z</updated>
+    <updated>2026-04-23T15:06:04.254Z</updated>
     <id>https://blog.uuanqin.top/</id>
     
     <author>
@@ -22,7 +22,7 @@
         <link href="https://blog.uuanqin.top/p/9d81ea9f/"/>
         <id>https://blog.uuanqin.top/p/9d81ea9f/</id>
         <published>2026-04-20T11:38:56.000Z</published>
-        <updated>2026-04-22T16:56:27.757Z</updated>
+        <updated>2026-04-23T15:06:04.254Z</updated>
         
         
         <summary type="html">自由输出内容园地的最后一块砖？</summary>
@@ -38,7 +38,49 @@
         
         <category term="Vercel" scheme="https://blog.uuanqin.top/pages/tags/Vercel/"/>
         
+        <category term="Keycloak" scheme="https://blog.uuanqin.top/pages/tags/Keycloak/"/>
+        
         <category term="Butterfly" scheme="https://blog.uuanqin.top/pages/tags/Butterfly/"/>
+        
+    </entry>
+    
+    <entry>
+        <title>非公开的文章 Soft Mode</title>
+        <link href="https://blog.uuanqin.top/p/6472cf77/"/>
+        <id>https://blog.uuanqin.top/p/6472cf77/</id>
+        <published>2026-04-17T14:06:48.000Z</published>
+        <updated>2026-04-20T07:19:37.373Z</updated>
+        
+        
+        <summary type="html">Soft 效果的文章加密测试。</summary>
+        
+        
+        
+        <category term="阿-测试文章" scheme="https://blog.uuanqin.top/pages/categories/%E9%98%BF-%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/"/>
+        
+        
+        <category term="测试" scheme="https://blog.uuanqin.top/pages/tags/%E6%B5%8B%E8%AF%95/"/>
+        
+        <category term="Keycloak" scheme="https://blog.uuanqin.top/pages/tags/Keycloak/"/>
+        
+    </entry>
+    
+    <entry>
+        <title>非公开的文章 Strict Mode</title>
+        <link href="https://blog.uuanqin.top/p/cb840d58/"/>
+        <id>https://blog.uuanqin.top/p/cb840d58/</id>
+        <published>2026-04-17T14:06:48.000Z</published>
+        <updated>2026-04-20T07:19:36.960Z</updated>
+        
+        
+        <summary type="html">Strict 效果的文章加密测试。</summary>
+        
+        
+        
+        <category term="阿-测试文章" scheme="https://blog.uuanqin.top/pages/categories/%E9%98%BF-%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/"/>
+        
+        
+        <category term="测试" scheme="https://blog.uuanqin.top/pages/tags/%E6%B5%8B%E8%AF%95/"/>
         
         <category term="Keycloak" scheme="https://blog.uuanqin.top/pages/tags/Keycloak/"/>
         
@@ -142,9 +184,9 @@
         
         <category term="JavaScript" scheme="https://blog.uuanqin.top/pages/tags/JavaScript/"/>
         
-        <category term="Butterfly" scheme="https://blog.uuanqin.top/pages/tags/Butterfly/"/>
-        
         <category term="Keycloak" scheme="https://blog.uuanqin.top/pages/tags/Keycloak/"/>
+        
+        <category term="Butterfly" scheme="https://blog.uuanqin.top/pages/tags/Butterfly/"/>
         
     </entry>
     
@@ -222,7 +264,7 @@
         <link href="https://blog.uuanqin.top/p/2fa44e03/"/>
         <id>https://blog.uuanqin.top/p/2fa44e03/</id>
         <published>2026-03-14T14:10:50.000Z</published>
-        <updated>2026-03-16T13:45:15.674Z</updated>
+        <updated>2026-04-23T15:09:11.316Z</updated>
         
         
         <summary type="html">权益是要靠自己去争取的</summary>
@@ -482,60 +524,6 @@
         <category term="蓄水池算法" scheme="https://blog.uuanqin.top/pages/tags/%E8%93%84%E6%B0%B4%E6%B1%A0%E7%AE%97%E6%B3%95/"/>
         
         <category term="随机数" scheme="https://blog.uuanqin.top/pages/tags/%E9%9A%8F%E6%9C%BA%E6%95%B0/"/>
-        
-    </entry>
-    
-    <entry>
-        <title>一起撸串（字符串）</title>
-        <link href="https://blog.uuanqin.top/p/6c1e0ffd/"/>
-        <id>https://blog.uuanqin.top/p/6c1e0ffd/</id>
-        <published>2025-11-03T13:36:44.000Z</published>
-        <updated>2026-03-14T16:39:36.525Z</updated>
-        
-        
-        <summary type="html">本文主要介绍以两个字符串作为输入的题目</summary>
-        
-        
-        
-        <category term="算法与数据结构" scheme="https://blog.uuanqin.top/pages/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-        
-        
-        <category term="Java" scheme="https://blog.uuanqin.top/pages/tags/Java/"/>
-        
-        <category term="LCS" scheme="https://blog.uuanqin.top/pages/tags/LCS/"/>
-        
-        <category term="KMP" scheme="https://blog.uuanqin.top/pages/tags/KMP/"/>
-        
-        <category term="动态规划" scheme="https://blog.uuanqin.top/pages/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
-        
-        <category term="编辑距离" scheme="https://blog.uuanqin.top/pages/tags/%E7%BC%96%E8%BE%91%E8%B7%9D%E7%A6%BB/"/>
-        
-        <category term="滑动窗口" scheme="https://blog.uuanqin.top/pages/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/"/>
-        
-        <category term="Pascal" scheme="https://blog.uuanqin.top/pages/tags/Pascal/"/>
-        
-    </entry>
-    
-    <entry>
-        <title>树状数组上手了就十分简单</title>
-        <link href="https://blog.uuanqin.top/p/47fd7a85/"/>
-        <id>https://blog.uuanqin.top/p/47fd7a85/</id>
-        <published>2025-09-24T15:26:16.000Z</published>
-        <updated>2026-02-01T06:20:05.478Z</updated>
-        
-        
-        <summary type="html">理解起来可难了</summary>
-        
-        
-        
-        <category term="算法与数据结构" scheme="https://blog.uuanqin.top/pages/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-        
-        
-        <category term="Java" scheme="https://blog.uuanqin.top/pages/tags/Java/"/>
-        
-        <category term="树状数组" scheme="https://blog.uuanqin.top/pages/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/"/>
-        
-        <category term="线段树" scheme="https://blog.uuanqin.top/pages/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
         
     </entry>
     

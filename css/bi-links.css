@@ -1,5 +1,18 @@
 /*https://codepen.io/ysoftaoglu/pen/JXROeY*/
 
+:root {
+  --bilink-color: #3399ff;
+  --bilink-404-color: #e81f63;
+  --bilink-auth-color: #ea8500;
+  --bilink-archive-color: #454545;
+}
+[data-theme='dark'] {
+  --bilink-color: #3988cd;
+  --bilink-404-color: #97113f;
+  --bilink-auth-color: #985700;
+  --bilink-archive-color: #757575;
+} /* 暗色下稍浅一点 */
+
 .uuanqin-bilink {
     display: inline-block;
     transition: all .2s ease;
@@ -7,10 +20,11 @@
     text-decoration-thickness: 1px;
     text-decoration-style: dashed;
     text-underline-offset: 4px;
-    text-decoration-color: #3399ff; /* 默认颜色 */
+    text-decoration-color: var(--bilink-color); /* 默认颜色 */
     z-index: 2;
     word-break: break-all;
     overflow-wrap: break-word;
+    position: relative;
 }
 
 span.bilink-pop-up {
@@ -31,7 +45,7 @@ span.bilink-pop-up {
     padding: 4px 8px;
     line-height: normal;
     color: #fff;
-    background-color: #3399ff; /* 默认颜色 */
+    background-color: var(--bilink-color); /* 默认颜色 */
     pointer-events: none;  /* 防止鼠标干扰 hover */
     user-select: none;     /* 禁止选中文本 */
     -webkit-user-select: none; /* Safari/Chrome */
@@ -39,13 +53,12 @@ span.bilink-pop-up {
     -ms-user-select: none;     /* IE10+ */
 }
 
-
-.uuanqin-bilink[href$="/p/undefined/"] {
-    text-decoration-color: #e81f63;
+.uuanqin-bilink[href$="/draft_post/"] {
+    text-decoration-color: var(--bilink-404-color);
 }
 
-.uuanqin-bilink[href$="/p/undefined/"] span.bilink-pop-up {
-    background-color: #e81f63;
+.uuanqin-bilink[href$="/draft_post/"] span.bilink-pop-up {
+    background-color: var(--bilink-404-color);
 }
 
 .uuanqin-bilink:hover span.bilink-pop-up,
@@ -56,25 +69,6 @@ span.bilink-pop-up {
 .uuanqin-bilink:hover {
     transform: translateY(-2px);
     text-decoration: none !important;
-}
-
-
-/* CSS伪元素替换文字 */
-.uuanqin-bilink[href$="/p/undefined/"] span.bilink-pop-up::before {
-    content: "敬请期待"; /* 这里替换成你想显示的文字 */
-}
-
-.uuanqin-bilink[href$="/p/undefined/"] span.bilink-pop-up {
-    font-size: 0;
-}
-
-.uuanqin-bilink[href$="/p/undefined/"] span.bilink-pop-up::before {
-    font-size: 12px;
-}
-
-.uuanqin-bilink {
-    position: relative;
-    display: inline-block;
 }
 
 /* 仍然允许 a 整体位移 */
@@ -98,3 +92,127 @@ span.bilink-pop-up {
     transform: translateY(2px);
 }
 
+/*================样式（越往下权重越高=====================*/
+
+/* 1. 定义受限文章链接的下划线颜色（黄色系） */
+.uuanqin-bilink[data-auth="true"] {
+  text-decoration-color: var(--bilink-auth-color);
+}
+
+/* 2. 定义受限文章弹窗的背景颜色 */
+.uuanqin-bilink[data-auth="true"] span.bilink-pop-up {
+  background-color: var(--bilink-auth-color);
+  font-size: 0; /* 隐藏原始文字 */
+}
+
+/* 3. 使用伪元素插入“受限文章”文字 */
+.uuanqin-bilink[data-auth="true"] span.bilink-pop-up::before {
+  content: "受限文章";
+  font-size: 12px; /* 恢复文字大小 */
+}
+
+/* CSS伪元素替换文字 */
+.uuanqin-bilink[href$="/draft_post/"] span.bilink-pop-up::before {
+  content: "敬请期待"; /* 这里替换成你想显示的文字 */
+}
+
+.uuanqin-bilink[href$="/draft_post/"] span.bilink-pop-up {
+  font-size: 0;
+}
+
+.uuanqin-bilink[href$="/draft_post/"] span.bilink-pop-up::before {
+  font-size: 12px;
+}
+
+/* 修改下划线颜色 */
+.uuanqin-bilink[data-cate*="Archive"] {
+  text-decoration-color: var(--bilink-archive-color);
+}
+
+/* 修改气泡背景颜色 */
+.uuanqin-bilink[data-cate*="Archive"] span.bilink-pop-up {
+  background-color: var(--bilink-archive-color);
+}
+
+/* (可选) 修改气泡文字，如果你需要的话 */
+.uuanqin-bilink[data-cate*="Archive"] span.bilink-pop-up::before {
+  content: "过期文章"; /* 只有需要替换文字时才加这两行 */
+  font-size: 12px;
+}
+
+.uuanqin-bilink[data-cate*="Archive"] span.bilink-pop-up {
+  font-size: 0; /* 配合上面的 ::before 使用 */
+}
+
+/*================预览小窗样式=================*/
+
+/* 预览卡片容器 */
+#bilink-preview-card {
+  position: absolute;
+  z-index: 2100;
+  width: 280px;
+  background: var(--card-bg, #fff);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  /*overflow: hidden;*/
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  transform: translateY(10px);
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  top: -9999px;
+  left: 0;
+}
+
+/* 允许鼠标进入预览窗 */
+#bilink-preview-card.show {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+/* 关键：桥接层（防止移动时消失） */
+#bilink-preview-card::after {
+  content: "";
+  position: absolute;
+  bottom: -15px; /* 向下延伸触发区 */
+  left: 0;
+  right: 0;
+  height: 15px;
+}
+
+/* 封面图样式 */
+.preview-cover {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  background-color: #f5f5f5;
+  border-radius: 12px 12px 0 0;
+}
+
+/* 文字简介样式 */
+.preview-content {
+  padding: 12px 16px;
+}
+
+.preview-desc {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--font-color, #444);
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* 最多显示3行 */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin: 0;
+}
+
+/* 暗黑模式适配 */
+[data-theme='dark'] #bilink-preview-card {
+  background: #2c2c2c;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border: 1px solid #444;
+}

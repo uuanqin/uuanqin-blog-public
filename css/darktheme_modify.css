@@ -1,3 +1,8 @@
+/* 链接的颜色 */
+[data-theme='dark'] .container a {
+  color: #6daa09;
+}
+
 /*顶部的网站图标*/
 [data-theme='dark'] img.site-icon {
     content: url(/image/logo-dw.webp); /* 建议使用本地图片，以防CDN挂掉 */

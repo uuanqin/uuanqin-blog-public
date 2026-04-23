@@ -1,0 +1,29 @@
+.card-knowledge-graph {
+  padding: 0 !important; /* 让 Canvas 撑满卡片内容区 */
+  overflow: hidden;
+}
+
+/*.card-knowledge-graph .item-headline {*/
+/*  padding: 10px 15px;*/
+/*}*/
+
+#aside-graph-container {
+  background: var(--card-bg); /* 使用 Butterfly 原生背景变量 */
+  border-radius: 0 0 8px 8px;
+  cursor: grab;
+}
+
+#aside-graph-container:active {
+  cursor: grabbing;
+}
+
+/* 夜间模式微调 */
+/*[data-theme='dark'] #aside-graph-container {*/
+/*  background: #1d1e22;*/
+/*}*/
+
+@media screen and (max-width: 900px) {
+  .card-knowledge-graph {
+    display: none !important;
+  }
+}
