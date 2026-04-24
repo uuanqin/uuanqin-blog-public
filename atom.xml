@@ -7,7 +7,7 @@
     <link href="https://blog.uuanqin.top/atom.xml" rel="self"/>
     
     <link href="https://blog.uuanqin.top/"/>
-    <updated>2026-04-23T19:07:41.658Z</updated>
+    <updated>2026-04-24T13:13:10.608Z</updated>
     <id>https://blog.uuanqin.top/</id>
     
     <author>
@@ -16,6 +16,56 @@
     </author>
     
     <generator uri="https://hexo.io/">Hexo</generator>
+    
+    <entry>
+        <title>hexo-filter-titlebased-link：构建你的数字花园</title>
+        <link href="https://blog.uuanqin.top/p/9c61131/"/>
+        <id>https://blog.uuanqin.top/p/9c61131/</id>
+        <published>2026-04-24T13:14:24.000Z</published>
+        <updated>2026-04-24T13:13:10.608Z</updated>
+        
+        
+        <summary type="html">为 Hexo 数字花园的实现提供了可能</summary>
+        
+        
+        
+        <category term="博客站点维护" scheme="https://blog.uuanqin.top/pages/categories/%E5%8D%9A%E5%AE%A2%E7%AB%99%E7%82%B9%E7%BB%B4%E6%8A%A4/"/>
+        
+        <category term="Hexo" scheme="https://blog.uuanqin.top/pages/categories/%E5%8D%9A%E5%AE%A2%E7%AB%99%E7%82%B9%E7%BB%B4%E6%8A%A4/Hexo/"/>
+        
+        
+        <category term="Hexo" scheme="https://blog.uuanqin.top/pages/tags/Hexo/"/>
+        
+        <category term="Obsidian" scheme="https://blog.uuanqin.top/pages/tags/Obsidian/"/>
+        
+        <category term="wiki link" scheme="https://blog.uuanqin.top/pages/tags/wiki-link/"/>
+        
+        <category term="Hexo-Filter" scheme="https://blog.uuanqin.top/pages/tags/Hexo-Filter/"/>
+        
+        <category term="数字花园" scheme="https://blog.uuanqin.top/pages/tags/%E6%95%B0%E5%AD%97%E8%8A%B1%E5%9B%AD/"/>
+        
+    </entry>
+    
+    <entry>
+        <title>Vercel 应用实践学习</title>
+        <link href="https://blog.uuanqin.top/p/11ce9d57/"/>
+        <id>https://blog.uuanqin.top/p/11ce9d57/</id>
+        <published>2026-04-21T08:06:40.000Z</published>
+        <updated>2026-04-21T17:05:01.199Z</updated>
+        
+        
+        <summary type="html">Vercel 应用实践记录集</summary>
+        
+        
+        
+        <category term="工程" scheme="https://blog.uuanqin.top/pages/categories/%E5%B7%A5%E7%A8%8B/"/>
+        
+        
+        <category term="Serverless" scheme="https://blog.uuanqin.top/pages/tags/Serverless/"/>
+        
+        <category term="Vercel" scheme="https://blog.uuanqin.top/pages/tags/Vercel/"/>
+        
+    </entry>
     
     <entry>
         <title>通过与 Keycloak 配合实现博客文章的受限访问功能</title>
@@ -464,66 +514,6 @@
         <category term="Agent" scheme="https://blog.uuanqin.top/pages/tags/Agent/"/>
         
         <category term="AI" scheme="https://blog.uuanqin.top/pages/tags/AI/"/>
-        
-    </entry>
-    
-    <entry>
-        <title>2025 WePlay 上海两日游</title>
-        <link href="https://blog.uuanqin.top/p/11d14c50/"/>
-        <id>https://blog.uuanqin.top/p/11d14c50/</id>
-        <published>2026-01-12T13:28:32.000Z</published>
-        <updated>2026-02-01T06:22:03.125Z</updated>
-        
-        
-        <summary type="html">最后的快乐</summary>
-        
-        
-        
-        <category term="百味人生" scheme="https://blog.uuanqin.top/pages/categories/%E7%99%BE%E5%91%B3%E4%BA%BA%E7%94%9F/"/>
-        
-        <category term="游记" scheme="https://blog.uuanqin.top/pages/categories/%E7%99%BE%E5%91%B3%E4%BA%BA%E7%94%9F/%E6%B8%B8%E8%AE%B0/"/>
-        
-        
-        <category term="上海" scheme="https://blog.uuanqin.top/pages/tags/%E4%B8%8A%E6%B5%B7/"/>
-        
-        <category term="WePlay" scheme="https://blog.uuanqin.top/pages/tags/WePlay/"/>
-        
-        <category term="乌合之众" scheme="https://blog.uuanqin.top/pages/tags/%E4%B9%8C%E5%90%88%E4%B9%8B%E4%BC%97/"/>
-        
-        <category term="锈湖" scheme="https://blog.uuanqin.top/pages/tags/%E9%94%88%E6%B9%96/"/>
-        
-        <category term="独立游戏" scheme="https://blog.uuanqin.top/pages/tags/%E7%8B%AC%E7%AB%8B%E6%B8%B8%E6%88%8F/"/>
-        
-        <category term="TapTap" scheme="https://blog.uuanqin.top/pages/tags/TapTap/"/>
-        
-        <category term="GameJam" scheme="https://blog.uuanqin.top/pages/tags/GameJam/"/>
-        
-    </entry>
-    
-    <entry>
-        <title>和随机数生成相关的题目</title>
-        <link href="https://blog.uuanqin.top/p/7ad89c4d/"/>
-        <id>https://blog.uuanqin.top/p/7ad89c4d/</id>
-        <published>2025-12-05T08:43:11.000Z</published>
-        <updated>2026-02-01T08:42:42.160Z</updated>
-        
-        
-        <summary type="html">很少写过和 Random 相关的题目</summary>
-        
-        
-        
-        <category term="算法与数据结构" scheme="https://blog.uuanqin.top/pages/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-        
-        
-        <category term="Java" scheme="https://blog.uuanqin.top/pages/tags/Java/"/>
-        
-        <category term="二分查找" scheme="https://blog.uuanqin.top/pages/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/"/>
-        
-        <category term="前缀和" scheme="https://blog.uuanqin.top/pages/tags/%E5%89%8D%E7%BC%80%E5%92%8C/"/>
-        
-        <category term="蓄水池算法" scheme="https://blog.uuanqin.top/pages/tags/%E8%93%84%E6%B0%B4%E6%B1%A0%E7%AE%97%E6%B3%95/"/>
-        
-        <category term="随机数" scheme="https://blog.uuanqin.top/pages/tags/%E9%9A%8F%E6%9C%BA%E6%95%B0/"/>
         
     </entry>
     

@@ -1,5 +1,4 @@
 // 用于解决遮挡问题
-
 document.addEventListener('DOMContentLoaded', function() {
     // 获取所有 .aclass 元素
     const aclassElements = document.querySelectorAll('.table-wrap');
@@ -72,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
     previewCard.classList.add('show');
 
     // 点击预览窗跳转
-    previewCard.onclick = () => window.location.href = el.href;
+    previewCard.onclick = () => window.open(el.href, '_blank');
   }
 
   function hideCard() {
@@ -93,7 +92,25 @@ document.addEventListener('DOMContentLoaded', function() {
     const links = document.querySelectorAll('.uuanqin-bilink');
 
     links.forEach(el => {
+      el.addEventListener('click', () => {
+        const popup = el.querySelector('.bilink-pop-up');
+        if (popup) {
+          popup.style.display = 'none'; // 点击瞬间强制消失
+        }
+        if (previewCard) previewCard.classList.remove('show');
+        clearTimeout(hoverTimer);
+      });
+
       el.onmouseenter = (e) => {
+        const popup = el.querySelector('.bilink-pop-up');
+        if (previewCard && previewCard.classList.contains('show')) {
+          if (popup) popup.style.display = 'none';
+          currentActiveSpan = popup;
+        } else {
+          // 正常进入时，确保 display 为空，允许气泡按 CSS 逻辑显示
+          if (popup) popup.style.display = '';
+        }
+
         clearTimeout(hideTimer);
         // 悬停阈值：500ms
         hoverTimer = setTimeout(() => showCard(e, el), 500);

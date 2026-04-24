@@ -86,7 +86,7 @@ async function initKnowledgeGraph(containerId, jsonPath, isSidebar = false) {
 
   const catConfig = {
     minArticles: 3,       // 少于这个数量的分类不显示名称
-    baseSize: isSidebar ? 14 : 20, // 基础字号
+    baseSize: isSidebar ? 6 : 12, // 基础字号
     sizeMultiplier: 4     // 数量增加时的字号增长权重
   };
 
