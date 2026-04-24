@@ -27,7 +27,7 @@ async function initKnowledgeGraph(containerId, jsonPath, isSidebar = false) {
   const nodes = Object.values(rawData)
     .filter(d => d.isDraft !== true)
     .map(d => {
-      const rawAttr = d.attrs['data-category'] || "";
+      const rawAttr = d.attrs['data-cate'] || "";
       const parts = rawAttr.split(' / ');
       return {
         id: d.id,
