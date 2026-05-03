@@ -57,28 +57,45 @@ function renderAISummary() {
   if (!summaryEl) return;
 
   const summaryText = summaryEl.getAttribute('data-summary');
-  if (summaryText) {
-    // 关键步骤：在打字前，先设置一个不可见但占位的副本
-    // 或者直接给容器设置高度
-    const tempSpan = document.createElement('span');
-    tempSpan.style.visibility = 'hidden';
-    tempSpan.textContent = summaryText;
-    summaryEl.appendChild(tempSpan);
+  if (!summaryText) return;
 
-    // 获取计算后的高度并固定
-    const finalHeight = tempSpan.offsetHeight+20;
-    summaryEl.style.height = finalHeight + 'px';
+  // --- 新逻辑：动态等待与精确捕获 ---
 
-    // 移除临时占位并开始打字
-    summaryEl.removeChild(tempSpan);
-    summaryEl.textContent = "";
+  // 1. 先把文字直接塞进去，但不显示（visibility: hidden）
+  // 这样它会在后台撑开应有的高度，无论是否加密
+  summaryEl.style.visibility = 'hidden';
+  summaryEl.style.height = 'auto';
+  summaryEl.textContent = summaryText;
 
+  // 2. 定义一个检查高度的函数（处理加密文章的异步显示）
+  const tryLockHeight = () => {
+    // 使用 scrollHeight 获取内容真实高度，getBoundingClientRect 获取渲染高度
+    // 这是最精确的高度获取方式
+    const rect = summaryEl.getBoundingClientRect();
+    const contentHeight = summaryEl.scrollHeight;
+
+    // 如果高度太小（说明文章还没解密，或者容器还被隐藏着）
+    if (contentHeight < 10 || rect.width === 0) {
+      setTimeout(tryLockHeight, 100); // 100ms 后重试，直到解密完成容器可见
+      return;
+    }
+
+    // 3. 此时已经拿到了真实的、解密后的最终高度
+    // 固定它！为了保险，可以多加 1-2px 的缓冲
+    summaryEl.style.height = (contentHeight + 2) + 'px';
+    summaryEl.style.visibility = 'visible'; // 恢复显示
+    summaryEl.textContent = ""; // 清空，准备打字机开始
+
+    // 4. 开始打字
     typeTextMachineStyle(summaryText, ".ai-summary .ai-explanation", {
       onComplete: (el) => {
-        el.style.height = 'auto'; // 打字结束后恢复自动高度，避免响应式缩放时出问题
+        // 打字结束，释放高度限制
+        el.style.height = 'auto';
       }
     });
-  }
+  };
+
+  tryLockHeight();
 }
 
 document.addEventListener('pjax:complete', renderAISummary);

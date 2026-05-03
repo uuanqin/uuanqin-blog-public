@@ -7562,14 +7562,65 @@ figure.highlight pre .javascript .function {
 .mermaid-wrap {
   position: relative;
   margin: 0 0 20px;
-  background: var(--card-bg);
-  text-align: center;
+  border: 1px solid var(--light-grey, #e2e2e2);
+  border-radius: 8px;
+  background: var(--card-bg, #f7f7f7);
+  overflow: hidden;
 }
-.mermaid-wrap .mermaid-open-btn {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  z-index: 2;
+.mermaid-wrap .mermaid-header {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-pack: justify;
+  -moz-box-pack: justify;
+  -o-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -o-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  padding: 8px 15px;
+  background: var(--hltools-bg, #f0f0f0);
+  border-bottom: 1px solid var(--light-grey, #e2e2e2);
+}
+.mermaid-wrap .mermaid-tabs {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  gap: 10px;
+}
+.mermaid-wrap .mermaid-tab-btn {
+  background: none;
+  border: none;
+  padding: 5px 12px;
+  cursor: pointer;
+  font-size: 13px;
+  border-radius: 4px;
+  color: var(--hltools-color, #555);
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.mermaid-wrap .mermaid-tab-btn.active {
+  background: var(--btn-hover-color, #d3d3d3);
+  color: var(--white, #fff);
+}
+.mermaid-wrap .mermaid-preview-container {
+  position: relative;
+  padding: 10px;
+  background: var(--global-bg, #fff);
   display: -webkit-box;
   display: -moz-box;
   display: -webkit-flex;
@@ -7582,47 +7633,11 @@ figure.highlight pre .javascript .function {
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
-  -webkit-box-align: center;
-  -moz-box-align: center;
-  -o-box-align: center;
-  -ms-flex-align: center;
-  -webkit-align-items: center;
-  align-items: center;
-  padding: 0;
-  width: 34px;
-  height: 25px;
-  border: none;
-  border-radius: 20%;
-  background: #d3d3d3;
-  -webkit-box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  color: #fff;
-  font-size: 0;
-  line-height: 1;
-  cursor: pointer;
-  -webkit-transition: background 0.2s ease, -webkit-transform 0.2s ease;
-  -moz-transition: background 0.2s ease, -moz-transform 0.2s ease;
-  -o-transition: background 0.2s ease, -o-transform 0.2s ease;
-  -ms-transition: background 0.2s ease, -ms-transform 0.2s ease;
-  transition: background 0.2s ease, transform 0.2s ease;
+  overflow: hidden;
 }
-.mermaid-wrap .mermaid-open-btn i {
-  font-size: 16px;
-  line-height: 1;
-}
-.mermaid-wrap .mermaid-open-btn:hover,
-.mermaid-wrap .mermaid-open-btn:focus-visible {
-  outline: none;
-  background: #c0c0c0;
-  -webkit-transform: translateY(-1px);
-  -moz-transform: translateY(-1px);
-  -o-transform: translateY(-1px);
-  -ms-transform: translateY(-1px);
-  transform: translateY(-1px);
-}
-.mermaid-wrap > svg {
+.mermaid-wrap .mermaid-preview-container > svg {
   max-width: 100%;
-  height: 100%;
+  height: auto;
   cursor: grab;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -7630,8 +7645,43 @@ figure.highlight pre .javascript .function {
   user-select: none;
   touch-action: none;
 }
-.mermaid-wrap > svg:active {
+.mermaid-wrap .mermaid-preview-container > svg:active {
   cursor: grabbing;
+}
+.mermaid-wrap .mermaid-source-container {
+  display: none;
+  padding: 15px;
+  background: var(--global-bg, #282c34);
+  color: #abb2bf;
+  font-family: $code-font, monospace;
+  overflow-x: auto;
+  text-align: left !important;
+}
+.mermaid-wrap .mermaid-source-container pre {
+  margin: 0;
+  padding: 0 !important;
+  background: transparent !important;
+  text-align: left !important;
+}
+.mermaid-wrap .mermaid-source-container code {
+  display: block;
+  text-align: left !important;
+  white-space: pre;
+}
+.mermaid-wrap .mermaid-open-btn {
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: var(--font-color, #555);
+  font-size: 16px;
+  -webkit-transition: color 0.2s ease;
+  -moz-transition: color 0.2s ease;
+  -o-transition: color 0.2s ease;
+  -ms-transition: color 0.2s ease;
+  transition: color 0.2s ease;
+}
+.mermaid-wrap .mermaid-open-btn:hover {
+  color: #6b9319;
 }
 pre > code.mermaid {
   display: none;

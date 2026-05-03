@@ -11,7 +11,7 @@ async function initKnowledgeGraph(containerId, jsonPath, isSidebar = false) {
 
   // 2. 基础配置
   const config = {
-    repulsion: -150,
+    repulsion: -300,
     distance: 50,
     collideRadius: 15,
     gravity: 0.1,
@@ -85,7 +85,7 @@ async function initKnowledgeGraph(containerId, jsonPath, isSidebar = false) {
   let stabilityTimer = null;
 
   const catConfig = {
-    minArticles: 3,       // 少于这个数量的分类不显示名称
+    minArticles: 5,       // 少于这个数量的分类不显示名称
     baseSize: isSidebar ? 6 : 12, // 基础字号
     sizeMultiplier: 4     // 数量增加时的字号增长权重
   };
@@ -204,17 +204,29 @@ async function initKnowledgeGraph(containerId, jsonPath, isSidebar = false) {
 
       Object.keys(catStats).forEach(cat => {
         const stats = catStats[cat];
-
-        // 3. 过滤逻辑：数量太少不显示
         if (stats.count < catConfig.minArticles) return;
 
         const avgX = stats.x / stats.count;
         const avgY = stats.y / stats.count;
 
-        // 4. 动态字号计算：基础字号 + 开方(数量) * 权重
-        // 使用开方是为了防止文章极多时字号变得大得离谱
-        const dynamicSize = catConfig.baseSize + Math.sqrt(stats.count) * catConfig.sizeMultiplier;
-        const fontSize = dynamicSize / globalScale;
+        const baseVisualSize = catConfig.baseSize + Math.sqrt(stats.count) * catConfig.sizeMultiplier;
+
+        /**
+         * 2. 非线性缩放补偿算法
+         * 我们不再单纯除以 globalScale，而是使用幂函数来“削弱”补偿。
+         * Math.pow(globalScale, 0.85) 的意思是：
+         * - 当放大时，字号增加得没那么疯狂。
+         * - 当缩小时，字号会适当缩小，减少挤压。
+         * 0.85 是一个经验值，你可以根据感觉调成 0.7 (缩放更明显) 或 0.9 (缩放更微弱)。
+         */
+        let fontSize = baseVisualSize / Math.pow(globalScale, 0.85);
+        const minScreenSize = 8;  // 最小看不见的边缘
+        const maxScreenSize = 60; // 最大遮住半个屏幕的限制
+
+        const currentScreenSize = fontSize * globalScale;
+        if (currentScreenSize < minScreenSize) fontSize = minScreenSize / globalScale;
+        if (currentScreenSize > maxScreenSize) fontSize = maxScreenSize / globalScale;
+
 
         ctx.font = `900 ${fontSize}px "Inter", "PingFang SC", sans-serif`;
 
@@ -268,13 +280,55 @@ async function initKnowledgeGraph(containerId, jsonPath, isSidebar = false) {
     })
   ;
 
+  // 这个力会让同一个分类的节点稍微向该分类的平均中心靠拢
+  const clusterForce = () => {
+    const strength = 0.2; // 类内凝聚力强度
+
+    nodes.forEach(node => {
+      // 找到当前节点所属分类的所有节点中心（之前 catStats 已经算好了）
+      // 或者我们直接利用 mainCategory 建立简单的吸引
+      const target = catStats[node.mainCategory];
+      if (target) {
+        const avgX = target.x / target.count;
+        const avgY = target.y / target.count;
+
+        // 给节点施加一个微小的速度偏移，向分类中心移动
+        node.vx += (avgX - node.x) * strength;
+        node.vy += (avgY - node.y) * strength;
+      }
+    });
+  };
+
   // 6. 物理引擎微调 (修正中心坐标为容器中心)
-  Graph.d3Force('charge').strength(config.repulsion).distanceMax(500);
+  Graph.d3Force('charge').strength(config.repulsion).distanceMax(250);
   Graph.d3Force('link').distance(config.distance);
   Graph.d3Force('center', d3.forceCenter(width / 2 - 400, height / 2 - 300).strength(config.gravity));
   Graph.d3Force('radial', d3.forceRadial(0, width / 2, height / 2).strength(config.radialStrength));
   Graph.d3Force('collide', d3.forceCollide().radius(n => Math.sqrt(n.val) * 2 + config.collideRadius));
   Graph.d3VelocityDecay(config.friction);
+  // 3. 实现“类间排斥”的最佳实践：使用自定义力
+  Graph.d3Force('category-separate', (alpha) => {
+    const k = alpha * 0.1;
+    nodes.forEach(node => {
+      nodes.forEach(other => {
+        if (node === other) return;
+        // 如果两个节点不属于同一个分类
+        if (node.mainCategory !== other.mainCategory) {
+          const dx = node.x - other.x;
+          const dy = node.y - other.y;
+          const l = Math.sqrt(dx * dx + dy * dy);
+          const threshold = 150; // 分类间的排斥距离阈值
+
+          if (l < threshold) {
+            // 额外的排斥位移
+            const force = (threshold - l) / threshold * k;
+            node.vx += dx * force;
+            node.vy += dy * force;
+          }
+        }
+      });
+    });
+  });
 
   window.addEventListener('resize', () => {
     const newWidth = container.offsetWidth;
