@@ -107,7 +107,7 @@
                     <header class="space-y-2 pt-2 md:pt-6">
                         <a title="{$title}" href="{$link}" target="_blank" rel="noopener noreferrer">
                             <h1 class="flex text-2xl">
-                                <span class="icon-[tabler--rss] mr-2 h-8 w-8"/>
+                                <i class="fa-solid fa-rss mr-2 h-8 w-8"/>
                                 <span class="lg2:text-3xl from-primary-600 to-accent-400 inline-block bg-gradient-to-r bg-clip-text font-bold text-transparent">
                                     <xsl:value-of select="$title" disable-output-escaping="yes"/>
                                 </span>

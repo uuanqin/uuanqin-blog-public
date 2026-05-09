@@ -7,7 +7,7 @@
     <link href="https://blog.uuanqin.top/atom.xml" rel="self"/>
     
     <link href="https://blog.uuanqin.top/"/>
-    <updated>2026-05-03T14:55:35.454Z</updated>
+    <updated>2026-05-06T16:41:57.060Z</updated>
     <id>https://blog.uuanqin.top/</id>
     
     <author>
@@ -18,14 +18,37 @@
     <generator uri="https://hexo.io/">Hexo</generator>
     
     <entry>
+        <title>省外居民身份证的补换领（苏州）</title>
+        <link href="https://blog.uuanqin.top/p/bddedde3/"/>
+        <id>https://blog.uuanqin.top/p/bddedde3/</id>
+        <published>2026-04-27T15:24:53.000Z</published>
+        <updated>2026-05-06T16:41:57.060Z</updated>
+        
+        
+        <summary type="html">本文详细介绍了省外居民身份证补领的流程，包括计划、信息获取、线下办理以及费用等相关细节。作者从准备换证开始，到选择线上和线下办理渠道，再到完成补领并等待收件，全程记录了自己的经验和步骤。此外，文章还强调了提前规划和利用网络资源的重要性，为需要办理类似证件的居民提供了实用的参考。整个过程简洁明了，操作性强，有助于提高办事效率。</summary>
+        
+        
+        
+        <category term="百味人生" scheme="https://blog.uuanqin.top/pages/categories/%E7%99%BE%E5%91%B3%E4%BA%BA%E7%94%9F/"/>
+        
+        <category term="社会生活" scheme="https://blog.uuanqin.top/pages/categories/%E7%99%BE%E5%91%B3%E4%BA%BA%E7%94%9F/%E7%A4%BE%E4%BC%9A%E7%94%9F%E6%B4%BB/"/>
+        
+        
+        <category term="苏州" scheme="https://blog.uuanqin.top/pages/tags/%E8%8B%8F%E5%B7%9E/"/>
+        
+        <category term="身份证" scheme="https://blog.uuanqin.top/pages/tags/%E8%BA%AB%E4%BB%BD%E8%AF%81/"/>
+        
+    </entry>
+    
+    <entry>
         <title>hexo-filter-titlebased-link：构建你的数字花园</title>
         <link href="https://blog.uuanqin.top/p/9c61131/"/>
         <id>https://blog.uuanqin.top/p/9c61131/</id>
         <published>2026-04-24T13:14:24.000Z</published>
-        <updated>2026-05-03T14:55:35.454Z</updated>
+        <updated>2026-05-09T06:52:50.853Z</updated>
         
         
-        <summary type="html">为 Hexo 数字花园的实现提供了可能</summary>
+        <summary type="html">这篇文章介绍了 Hexo 插件 hexo-filter-titlebased-link 的开发背景、功能特性及使用方法。该插件旨在缩小 Obsidian 与 Hexo 之间语法功能的适配差距，特别是双链功能的语法适配。自 v0.3.0 版本起，插件支持 Front-Matter 信息注入，提供双链信息的获取方式，并支持导出全局 JSON 数据。文章详细说明了插件的安装与配置步骤，并鼓励社区贡献和建议，以丰富插件功能，打造个性化的数字花园。</summary>
         
         
         
@@ -54,7 +77,7 @@
         <updated>2026-04-21T17:05:01.199Z</updated>
         
         
-        <summary type="html">Vercel 应用实践记录集</summary>
+        <summary type="html">本文介绍了 Vercel 应用开发的相关实践，包括自定义域名配置、静态资源放置、环境变量设置、Node 项目依赖管理、无服务器函数应用以及静态网页应用的部署。作者分享了如何在 Vercel 平台上优化个人开发者的工作流程，并提供了具体的操作指南和注意事项。此外，还推荐了一些相关的文章以便读者深入学习和参考。</summary>
         
         
         
@@ -75,7 +98,7 @@
         <updated>2026-04-23T19:07:41.658Z</updated>
         
         
-        <summary type="html">自由输出内容园地的最后一块砖？</summary>
+        <summary type="html">本文介绍了如何在 Keycloak 认证系统下实现对博客文章的受限访问。通过 Hexo-Butterfly 网页应用，结合Keycloak的登录态检测功能，文章实现了两种受限访问模式：软遮罩和严格物理加密。用户登录后，可访问软遮罩模式下的文章，内容未实质加密；而严格模式下，文章内容经过物理加密，首次访问需联网验证身份。文章还详细说明了实现这一功能的步骤，包括在Vercel或服务器上部署验签函数，修改 Hexo-Butterfly 主题以增加遮罩页，以及在博客中引入 JavaScript 进行文章解密。此外，还讨论了两种模式的利弊及未来可能的扩展功能。</summary>
         
         
         
@@ -95,14 +118,14 @@
     </entry>
     
     <entry>
-        <title>非公开的文章 Soft Mode</title>
-        <link href="https://blog.uuanqin.top/p/6472cf77/"/>
-        <id>https://blog.uuanqin.top/p/6472cf77/</id>
+        <title>非公开的文章 Strict Mode</title>
+        <link href="https://blog.uuanqin.top/p/cb840d58/"/>
+        <id>https://blog.uuanqin.top/p/cb840d58/</id>
         <published>2026-04-17T14:06:48.000Z</published>
-        <updated>2026-04-20T07:19:37.373Z</updated>
+        <updated>2026-04-20T07:19:36.960Z</updated>
         
         
-        <summary type="html">Soft 效果的文章加密测试。</summary>
+        <summary type="html">本文是一篇测试文章，主要介绍了博客网站的非公开文章功能以及一些基本内容测试，包括动图测试、双向链接测试和代码块展示。文章还提到了公式块的展示方式，并附带了一个提示信息。此外，文章末尾还要求在生成的摘要后添加特定的标记。</summary>
         
         
         
@@ -116,14 +139,14 @@
     </entry>
     
     <entry>
-        <title>非公开的文章 Strict Mode</title>
-        <link href="https://blog.uuanqin.top/p/cb840d58/"/>
-        <id>https://blog.uuanqin.top/p/cb840d58/</id>
+        <title>非公开的文章 Soft Mode</title>
+        <link href="https://blog.uuanqin.top/p/6472cf77/"/>
+        <id>https://blog.uuanqin.top/p/6472cf77/</id>
         <published>2026-04-17T14:06:48.000Z</published>
-        <updated>2026-04-20T07:19:36.960Z</updated>
+        <updated>2026-04-20T07:19:37.373Z</updated>
         
         
-        <summary type="html">Strict 效果的文章加密测试。</summary>
+        <summary type="html">本文是一篇测试文章，主要用于测试博客网站的非公开文章功能。文章采用了Soft验证模式，并包含多种测试内容，如动图测试、双向链接测试和代码块展示等。其中，动图测试展示了Eling公园的小猫，双向链接测试则是对站内文章的双链渲染进行测试，代码块部分给出了print语句和数学公式的展示。此外，还包含了提示和测试内容的标记。</summary>
         
         
         
@@ -141,10 +164,10 @@
         <link href="https://blog.uuanqin.top/p/da4ac563/"/>
         <id>https://blog.uuanqin.top/p/da4ac563/</id>
         <published>2026-04-14T20:01:27.000Z</published>
-        <updated>2026-04-24T02:56:50.485Z</updated>
+        <updated>2026-05-05T17:04:30.271Z</updated>
         
         
-        <summary type="html">例行的插件推广文，不过这篇文章参杂了很多开发杂记</summary>
+        <summary type="html">本文介绍了作者开发的Hexo插件@uuanqin/hexo-filter-live-photo，用于在博客中插入实况照片。该插件支持通过提供视频链接来插入动图，具有多种定制功能如指定封面链接、图片ALT文本、动图标题、尺寸、微信环境优化、循环播放、交互式声音按钮等。作者选择自定义代码块的方式实现动图插入，以保持语法的纯洁性和平台兼容性。插件不支持Hexo的标签语法，但提供了详细的文档和使用示例。此外，文章还回顾了实况照片的发展历程和技术差异，以及不同厂商的实现方式。作者邀请读者体验插件并欢迎Issues &amp; PRs。</summary>
         
         
         
@@ -171,7 +194,7 @@
         <updated>2026-04-20T07:11:53.479Z</updated>
         
         
-        <summary type="html">用于测试插件 hexo-filter-live-photo</summary>
+        <summary type="html">本文介绍了在 Hexo 博客中如何使用动态图片功能，展示了多种配置方式和异常处理。首先，通过基础设置展示了如何播放小猫的动态画面；接着，解释了如何通过高度控制比例以及如何设定宽度和高度来精确控制显示区域；最后，文章详细描述了插件对异常地址的处理方式，包括视频地址和封面地址的各种错误场景，确保了功能的稳定性和用户体验。</summary>
         
         
         
@@ -191,10 +214,10 @@
         <link href="https://blog.uuanqin.top/p/85371005/"/>
         <id>https://blog.uuanqin.top/p/85371005/</id>
         <published>2026-04-12T18:00:01.000Z</published>
-        <updated>2026-04-16T07:28:14.380Z</updated>
+        <updated>2026-05-07T16:55:27.902Z</updated>
         
         
-        <summary type="html">改造原版主题代码，提升扩展性</summary>
+        <summary type="html">本文介绍了如何定制 Hexo-Butterfly 主题的全局加载页，以提升博客的加载速度和用户体验。文章首先概述了全局加载页的重要性，并展示了如何在主题配置文件中开启该功能。接着，通过修改 Pug 模板和 Stylus 样式文件，实现了对全局加载页的灵活配置，支持多种不同的加载动画效果。最后，文章分享了两个成功移植的全局加载页项目，并提供了详细的移植步骤和注意事项。通过这些修改，用户可以根据自己的需求定制加载页，进一步优化博客的性能和视觉效果。</summary>
         
         
         
@@ -223,7 +246,7 @@
         <updated>2026-04-21T17:05:01.162Z</updated>
         
         
-        <summary type="html">AI Coding的一次实践，为授权文章功能做基础</summary>
+        <summary type="html">本文介绍了如何部署和配置 Keycloak 作为开源的 SSO 系统，并将其与 Hexo-Butterfly 静态博客框架集成。首先，文章详细描述了 Keycloak 的部署步骤，包括 Docker 指令和配置参数，强调了生产环境下的必要配置如 Nginx、HTTPS 等。接着，文章讲解了如何在 Keycloak 中创建Realm和用户，并配置Client以支持单点登录。最后，文章展示了如何在 Hexo-Butterfly 主题中集成 Keycloak，通过自定义 JavaScript和Pug模板实现了侧边栏登录按钮的功能，包括登录、展示用户信息和登出操作。整个过程不仅提供了详细的配置指南，还展示了如何通过自定义实现个性化的用户体验。</summary>
         
         
         
@@ -248,7 +271,7 @@
         <updated>2026-04-08T19:46:38.404Z</updated>
         
         
-        <summary type="html">AI 增强博客网站的案例</summary>
+        <summary type="html">本文介绍了如何实现随机访问文章的功能，主要包括三个步骤：准备站点列表、读取并随机挑选站点以及访问目标地址。为了优化性能，文章提出了不重复请求站点列表、利用浏览器本地缓存加速获取、简单的 CSS 提示以及过滤敏感参数等策略。此外，还详细说明了 Hexo-Butterfly 主题的使用方法，包括在配置文件中设置菜单项以及在 JavaScript 文件中实现随机文章跳转的逻辑。最后，文章列出了参考资料，强调了利用 Sitemap 随机访问站内页面的重要性。</summary>
         
         
         
@@ -271,7 +294,7 @@
         <updated>2026-03-28T07:45:21.140Z</updated>
         
         
-        <summary type="html">最后还是有坑</summary>
+        <summary type="html">本文详细介绍了 Authentik 的部署过程，包括安装前的配置、邮件服务配置、PostgreSQL 端口开放等关键步骤，并提供了测试与链接的方法。在部署过程中，作者遇到了一些问题，如访问管理员初始化设置页面出现 Not Found 错误，以及密码设置问题，但最终通过调整配置解决了这些问题。此外，文章还提到了在服务器安全组中开放 5433 端口的重要性。最后，作者总结了部署过程中的难点，并提供了相关参考资料。</summary>
         
         
         
@@ -294,7 +317,7 @@
         <updated>2026-04-07T07:07:05.546Z</updated>
         
         
-        <summary type="html">Waline 自定义第三方认证，是接入博客统一认证登录系统的开始</summary>
+        <summary type="html">Waline 是一个用于实现网站统一认证服务的开源项目，本文介绍了如何在 Vercel 平台上部署 Waline 官方 Auth 项目，并接入 GitHub 和 QQ 第三方登录。首先，需要在 Vercel 中部署 walinejs/auth 项目，并为其配置自定义域名。接着，详细说明了如何接入 GitHub OAuth 和创建 QQ 应用，包括所需的参数填写和审核流程。最后，通过更新 walinejs/auth 的环境变量并重新部署，即可完成第三方登录的接入。本文还提供了相关参考资料，帮助读者更好地理解和实施 Waline 自建 Auth 认证方案。</summary>
         
         
         
@@ -317,7 +340,7 @@
         <updated>2026-04-23T15:09:11.316Z</updated>
         
         
-        <summary type="html">权益是要靠自己去争取的</summary>
+        <summary type="html">在南航，作者的行李在托运途中受损，作者原本打算通过小红书寻求解决方案并离开机场，但发现理赔流程复杂且效率低下。作者遇到的主要问题是在线申报环节的输入框限制和数字粘贴时的自动减少，导致填写过程困难。此外，作者还经历了长时间的等待和与客服的沟通，最终接受了不满意的赔偿方案。这次经历让作者意识到利益争取的重要性，并提醒自己在未来的托运过程中要更加细心和主动。</summary>
         
         
         
@@ -342,7 +365,7 @@
         <updated>2026-03-20T11:30:41.777Z</updated>
         
         
-        <summary type="html">一篇给人看的 Skill</summary>
+        <summary type="html">本文介绍了 Docker 镜像的制作、拉取与运行的相关知识。首先，讲述了 Docker 的基本概念，即将项目环境和代码打包成镜像以便分发和移植。接着，提供了版本检查、换镜像源、拉取镜像、运行镜像等操作步骤，并解释了构建镜像时使用的 Dockerfile 及其编写策略。最后，列举了一些常用命令并提供了相关参考链接。</summary>
         
         
         
@@ -361,7 +384,7 @@
         <updated>2026-03-05T09:00:08.245Z</updated>
         
         
-        <summary type="html">每次主题升级都要修改，麻烦！</summary>
+        <summary type="html">本文介绍了如何在 Hexo Butterfly 主题中移除或修改 Algolia 搜索框的 Power By 标识。通常，中国大陆的网站需要进行备案审查，但如果站点出现了指向未知风险的外部链接，可能需要整改。Hexo Butterfly主题下的Algolia 搜索框 Power By 标识就是需要整改的一个点。文章详细说明了如何通过修改源代码来移除这个标识，并提供了相关的代码示例和注意事项。同时，文章也提到了 Algolia 的服务条款，强调了尊重知识产权的重要性。</summary>
         
         
         
@@ -384,7 +407,7 @@
         <updated>2026-03-03T14:01:08.894Z</updated>
         
         
-        <summary type="html">密密麻麻的 HTML 不会塞满我的配置了</summary>
+        <summary type="html">本文介绍了如何在 Hexo 主题中通过注册钩子函数实现配置文件的动态加载，以解决配置文件冗长、HTML 内容无代码高亮和扩展性差的问题。作者详细说明了如何编写脚本并注册钩子，在配置文件被修改后能够实时更新页面内容。此外，文章还提供了一个具体的配置示例，并指出当前脚本仍处于试用阶段，欢迎读者在评论区交流讨论。</summary>
         
         
         
@@ -413,7 +436,7 @@
         <updated>2026-03-03T14:09:22.976Z</updated>
         
         
-        <summary type="html">教育闭环之配置 VSCode</summary>
+        <summary type="html">本文以作者的 VSCode 配置经验为例，介绍了如何在 VSCode 中进行个性化设置，包括创建 .vscode 文件夹来存储项目配置。首先讲解了 tasks.json 文件的配置方法，详细说明了如何设置编译 LaTeX 文档的任务，并解释了各项参数的含义。接着，文章探讨了 settings.json 文件的自定义插件设置，阐述了不同层级设置文件的优先级和配置方法。最后，提供了相关参考资料，帮助读者更深入地理解 VSCode 的配置机制。</summary>
         
         
         
@@ -438,7 +461,7 @@
         <updated>2026-03-14T16:39:21.990Z</updated>
         
         
-        <summary type="html">设计模式第一课</summary>
+        <summary type="html">本文介绍了 SOLID 设计原则，包括单一职责原则、开闭原则、里氏替换原则、接口隔离原则和依赖反转原则。单一职责原则要求类或模块只负责一项功能，避免过度设计和代码臃肿。开闭原则强调软件实体应对扩展开放，对修改关闭，以减少代码改动。里氏替换原则指出子类应能替换父类而不影响程序逻辑，确保继承关系的正确性。接口隔离原则提倡客户端不应被迫依赖未使用的接口，以提高代码的灵活性和可维护性。这些原则旨在提高软件的可扩展性和可维护性。</summary>
         
         
         
@@ -459,7 +482,7 @@
         <updated>2026-03-05T07:32:52.257Z</updated>
         
         
-        <summary type="html">RAG 环节中的向量数据库的创建与使用</summary>
+        <summary type="html">本文介绍了如何在 Spring AI 框架中使用 PGVector 实现向量存储。首先，详细说明了如何在云服务器上安装和配置 PostgreSQL 18，并安装 PGVector 插件。接着，讨论了如何为远程连接数据库做准备，包括修改 PostgreSQL 配置文件和开放安全组。最后，展示了如何在 Spring AI 项目中整合 PGVector，并提供了 Java 测试代码示例。文章还提醒了向量维度数设置错误时的解决方法。通过这些步骤，读者可以在 Spring AI环境中有效地利用 PGVector 进行向量存储和相似性搜索。</summary>
         
         
         
@@ -489,31 +512,6 @@
         <category term="RAG" scheme="https://blog.uuanqin.top/pages/tags/RAG/"/>
         
         <category term="Navicat" scheme="https://blog.uuanqin.top/pages/tags/Navicat/"/>
-        
-    </entry>
-    
-    <entry>
-        <title>提示词工程速查手册</title>
-        <link href="https://blog.uuanqin.top/p/d1b29bd4/"/>
-        <id>https://blog.uuanqin.top/p/d1b29bd4/</id>
-        <published>2026-01-18T08:01:53.000Z</published>
-        <updated>2026-03-14T16:39:30.970Z</updated>
-        
-        
-        <summary type="html">我的魔法书</summary>
-        
-        
-        
-        <category term="工程" scheme="https://blog.uuanqin.top/pages/categories/%E5%B7%A5%E7%A8%8B/"/>
-        
-        
-        <category term="Prompt Engineering" scheme="https://blog.uuanqin.top/pages/tags/Prompt-Engineering/"/>
-        
-        <category term="LLM" scheme="https://blog.uuanqin.top/pages/tags/LLM/"/>
-        
-        <category term="Agent" scheme="https://blog.uuanqin.top/pages/tags/Agent/"/>
-        
-        <category term="AI" scheme="https://blog.uuanqin.top/pages/tags/AI/"/>
         
     </entry>
     
